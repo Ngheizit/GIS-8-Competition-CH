@@ -1,0 +1,10 @@
+D:\y2019No8GISCompetition\ArcGISEngine\ShowFeatureTable\ShowFeatureTable\bin\Debug\ShowFeatureTable.exe.config
+D:\y2019No8GISCompetition\ArcGISEngine\显示要素属性表格\ShowFeatureTable\bin\Debug\ShowFeatureTable.exe.config
+D:\y2019No8GISCompetition\ArcGISEngine\显示要素属性表格\ShowFeatureTable\bin\Debug\ShowFeatureTable.exe
+D:\y2019No8GISCompetition\ArcGISEngine\显示要素属性表格\ShowFeatureTable\bin\Debug\ShowFeatureTable.pdb
+D:\y2019No8GISCompetition\ArcGISEngine\显示要素属性表格\ShowFeatureTable\obj\Debug\ShowFeatureTable.csprojResolveAssemblyReference.cache
+D:\y2019No8GISCompetition\ArcGISEngine\显示要素属性表格\ShowFeatureTable\obj\Debug\ShowFeatureTable.Properties.Resources.resources
+D:\y2019No8GISCompetition\ArcGISEngine\显示要素属性表格\ShowFeatureTable\obj\Debug\ShowFeatureTable.csproj.GenerateResource.Cache
+D:\y2019No8GISCompetition\ArcGISEngine\显示要素属性表格\ShowFeatureTable\obj\Debug\ShowFeatureTable.exe
+D:\y2019No8GISCompetition\ArcGISEngine\显示要素属性表格\ShowFeatureTable\obj\Debug\ShowFeatureTable.pdb
+D:\y2019No8GISCompetition\ArcGISEngine\显示要素属性表格\ShowFeatureTable\obj\Debug\ShowFeatureTable.FormMain.resources

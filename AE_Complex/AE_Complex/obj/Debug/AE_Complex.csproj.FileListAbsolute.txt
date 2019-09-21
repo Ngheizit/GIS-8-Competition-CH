@@ -1,9 +1,0 @@
-D:\xizhe\github_local\GIS8_2019\AE_Complex\AE_Complex\bin\Debug\AE_Complex.exe.config
-D:\xizhe\github_local\GIS8_2019\AE_Complex\AE_Complex\bin\Debug\AE_Complex.exe
-D:\xizhe\github_local\GIS8_2019\AE_Complex\AE_Complex\bin\Debug\AE_Complex.pdb
-D:\xizhe\github_local\GIS8_2019\AE_Complex\AE_Complex\obj\Debug\AE_Complex.FormMain.resources
-D:\xizhe\github_local\GIS8_2019\AE_Complex\AE_Complex\obj\Debug\AE_Complex.Properties.Resources.resources
-D:\xizhe\github_local\GIS8_2019\AE_Complex\AE_Complex\obj\Debug\AE_Complex.csproj.GenerateResource.Cache
-D:\xizhe\github_local\GIS8_2019\AE_Complex\AE_Complex\obj\Debug\AE_Complex.exe
-D:\xizhe\github_local\GIS8_2019\AE_Complex\AE_Complex\obj\Debug\AE_Complex.pdb
-D:\xizhe\github_local\GIS8_2019\AE_Complex\AE_Complex\obj\Debug\AE_Complex.csprojResolveAssemblyReference.cache
