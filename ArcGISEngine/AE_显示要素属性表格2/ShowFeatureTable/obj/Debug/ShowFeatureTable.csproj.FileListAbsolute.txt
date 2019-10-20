@@ -17,3 +17,12 @@ D:\y2019No8GISCompetition\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureT
 D:\y2019No8GISCompetition\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\obj\Debug\ShowFeatureTable.FormMain.resources
 D:\y2019No8GISCompetition\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\obj\Debug\ShowFeatureTable.Properties.Resources.resources
 D:\y2019No8GISCompetition\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\obj\Debug\ShowFeatureTable.csproj.GenerateResource.Cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\bin\Debug\ShowFeatureTable.exe.config
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\obj\Debug\ShowFeatureTable.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\obj\Debug\ShowFeatureTable.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\bin\Debug\ShowFeatureTable.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\bin\Debug\ShowFeatureTable.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\obj\Debug\ShowFeatureTable.csprojResolveAssemblyReference.cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\obj\Debug\ShowFeatureTable.FormMain.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\obj\Debug\ShowFeatureTable.Properties.Resources.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AE_显示要素属性表格2\ShowFeatureTable\obj\Debug\ShowFeatureTable.csproj.GenerateResource.Cache

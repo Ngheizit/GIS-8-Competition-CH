@@ -52,7 +52,6 @@ namespace Temp
             // 默认选择非绘制状态
             cmbx_draw.SelectedIndex = 0;
 
-
             setTOCControl(new Cmd.ZoomToLayer(),
                           new Cmd.DeleteLayer());
         }
