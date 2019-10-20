@@ -37,11 +37,17 @@
             this.cmbx_draw = new System.Windows.Forms.ComboBox();
             this.ckbx_eye = new System.Windows.Forms.CheckBox();
             this.axMapControl_eye = new ESRI.ArcGIS.Controls.AxMapControl();
+            this.rbtn_dataView = new System.Windows.Forms.RadioButton();
+            this.rbtn_layoutView = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.axPageLayoutControl_main = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl_eye)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl_main)).BeginInit();
             this.SuspendLayout();
             // 
             // axLicenseControl1
@@ -75,6 +81,7 @@
             this.axMapControl_main.Size = new System.Drawing.Size(628, 488);
             this.axMapControl_main.TabIndex = 2;
             this.axMapControl_main.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl_main_OnMouseDown);
+            this.axMapControl_main.OnAfterScreenDraw += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnAfterScreenDrawEventHandler(this.axMapControl_main_OnAfterScreenDraw);
             this.axMapControl_main.OnExtentUpdated += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnExtentUpdatedEventHandler(this.axMapControl_main_OnExtentUpdated);
             // 
             // axToolbarControl_main
@@ -89,6 +96,8 @@
             // 
             // btn_saveDocument
             // 
+            this.btn_saveDocument.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_saveDocument.Location = new System.Drawing.Point(12, 480);
             this.btn_saveDocument.Name = "btn_saveDocument";
             this.btn_saveDocument.Size = new System.Drawing.Size(89, 23);
@@ -112,6 +121,7 @@
             this.cmbx_draw.Name = "cmbx_draw";
             this.cmbx_draw.Size = new System.Drawing.Size(121, 20);
             this.cmbx_draw.TabIndex = 5;
+            this.cmbx_draw.Tag = "";
             // 
             // ckbx_eye
             // 
@@ -137,16 +147,65 @@
             this.axMapControl_eye.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl_eye_OnMouseDown);
             this.axMapControl_eye.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl_eye_OnMouseMove);
             // 
+            // rbtn_dataView
+            // 
+            this.rbtn_dataView.AutoSize = true;
+            this.rbtn_dataView.Checked = true;
+            this.rbtn_dataView.Location = new System.Drawing.Point(3, 4);
+            this.rbtn_dataView.Name = "rbtn_dataView";
+            this.rbtn_dataView.Size = new System.Drawing.Size(71, 16);
+            this.rbtn_dataView.TabIndex = 8;
+            this.rbtn_dataView.TabStop = true;
+            this.rbtn_dataView.Text = "数据视图";
+            this.rbtn_dataView.UseVisualStyleBackColor = true;
+            this.rbtn_dataView.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            // 
+            // rbtn_layoutView
+            // 
+            this.rbtn_layoutView.AutoSize = true;
+            this.rbtn_layoutView.Location = new System.Drawing.Point(80, 4);
+            this.rbtn_layoutView.Name = "rbtn_layoutView";
+            this.rbtn_layoutView.Size = new System.Drawing.Size(71, 16);
+            this.rbtn_layoutView.TabIndex = 9;
+            this.rbtn_layoutView.Text = "布局视图";
+            this.rbtn_layoutView.UseVisualStyleBackColor = true;
+            this.rbtn_layoutView.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.rbtn_layoutView);
+            this.panel1.Controls.Add(this.rbtn_dataView);
+            this.panel1.Location = new System.Drawing.Point(107, 480);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(155, 23);
+            this.panel1.TabIndex = 10;
+            // 
+            // axPageLayoutControl_main
+            // 
+            this.axPageLayoutControl_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.axPageLayoutControl_main.Location = new System.Drawing.Point(0, 27);
+            this.axPageLayoutControl_main.Name = "axPageLayoutControl_main";
+            this.axPageLayoutControl_main.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl_main.OcxState")));
+            this.axPageLayoutControl_main.Size = new System.Drawing.Size(628, 488);
+            this.axPageLayoutControl_main.TabIndex = 11;
+            this.axPageLayoutControl_main.Visible = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 515);
-            this.Controls.Add(this.axMapControl_eye);
-            this.Controls.Add(this.ckbx_eye);
-            this.Controls.Add(this.cmbx_draw);
             this.Controls.Add(this.btn_saveDocument);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.axMapControl_eye);
+            this.Controls.Add(this.axPageLayoutControl_main);
+            this.Controls.Add(this.cmbx_draw);
             this.Controls.Add(this.axToolbarControl_main);
+            this.Controls.Add(this.ckbx_eye);
             this.Controls.Add(this.axMapControl_main);
             this.Controls.Add(this.axTOCControl_main);
             this.Controls.Add(this.axLicenseControl1);
@@ -158,6 +217,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl_main)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl_main)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl_eye)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl_main)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,6 +235,10 @@
         private System.Windows.Forms.ComboBox cmbx_draw;
         private System.Windows.Forms.CheckBox ckbx_eye;
         private ESRI.ArcGIS.Controls.AxMapControl axMapControl_eye;
+        private System.Windows.Forms.RadioButton rbtn_dataView;
+        private System.Windows.Forms.RadioButton rbtn_layoutView;
+        private System.Windows.Forms.Panel panel1;
+        private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl_main;
     }
 }
 

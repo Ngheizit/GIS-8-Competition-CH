@@ -16,3 +16,12 @@ D:\xizhe\y2019No8GISCompetition\ArcGISEngine\Temp\Temp\obj\Debug\Temp.FormMain.r
 D:\xizhe\y2019No8GISCompetition\ArcGISEngine\Temp\Temp\obj\Debug\Temp.Properties.Resources.resources
 D:\xizhe\y2019No8GISCompetition\ArcGISEngine\Temp\Temp\obj\Debug\Temp.csproj.GenerateResource.Cache
 D:\xizhe\y2019No8GISCompetition\ArcGISEngine\Temp\Temp\obj\Debug\Temp.csprojResolveAssemblyReference.cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp\Temp\bin\Debug\Temp.exe.config
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp\Temp\obj\Debug\Temp.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp\Temp\obj\Debug\Temp.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp\Temp\bin\Debug\Temp.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp\Temp\bin\Debug\Temp.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp\Temp\obj\Debug\Temp.csprojResolveAssemblyReference.cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp\Temp\obj\Debug\Temp.FormMain.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp\Temp\obj\Debug\Temp.Properties.Resources.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp\Temp\obj\Debug\Temp.csproj.GenerateResource.Cache

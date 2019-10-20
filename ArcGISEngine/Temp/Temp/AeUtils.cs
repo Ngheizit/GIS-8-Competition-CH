@@ -23,9 +23,10 @@ namespace Temp
         /// <param name="mapControl">地图文档接口</param>
         public static void LoadMapDocument(IMapControl2 mapControl)
         {
-            OpenFileDialog ofg = new OpenFileDialog();
-            ofg.Title = "打开地图文档";
-            ofg.Filter = "地图文档 (*.mxd)|*.mxd";
+            OpenFileDialog ofg = new OpenFileDialog() { 
+                Title = "打开地图文档",
+                Filter = "地图文档 (*.mxd)|*.mxd"
+            };
             if (ofg.ShowDialog() == DialogResult.OK)
             {
                 string sFilePath = ofg.FileName;
@@ -141,8 +142,9 @@ namespace Temp
         /// <param name="mapControl">绘制目标（地图控件对象）</param>
         public static void DrawMapShape(IEnvelope envelope, IMapControl2 mapControl)
         {
-            IElement pElement = new RectangleElementClass();
-            pElement.Geometry = envelope;
+            IElement pElement = new RectangleElementClass() { 
+                Geometry = envelope
+            };
             IFillShapeElement pFillShapeElement = pElement as IFillShapeElement;
             pFillShapeElement.Symbol = getFillSymbol(getLineSymbol());
             IGraphicsContainer pGC = mapControl.Map as IGraphicsContainer;
