@@ -55,7 +55,7 @@ namespace Temp
             setTOCControl(new Cmd.ZoomToLayer(),
                           new Cmd.DeleteLayer());
 
-            AeUtilsSymbology.UniqueValueRenderer(m_pMapC2.get_Layer(2) as IFeatureLayer, "COLOR", m_pMapC2, axTOCControl_main);
+            AeUtilsSymbology.Proportional(m_pMapC2.get_Layer(2) as IFeatureLayer, "COLOR", m_pMapC2, axTOCControl_main);
         }
 
         private void setMxd()
