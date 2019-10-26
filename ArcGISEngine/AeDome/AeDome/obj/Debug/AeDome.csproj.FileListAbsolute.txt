@@ -1,0 +1,10 @@
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\bin\Debug\AeDome.exe.config
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\bin\Debug\AeDome.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\bin\Debug\AeDome.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.csprojResolveAssemblyReference.cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.FormMain.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.Properties.Resources.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.csproj.GenerateResource.Cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.Froms.FromAttributeTable.resources

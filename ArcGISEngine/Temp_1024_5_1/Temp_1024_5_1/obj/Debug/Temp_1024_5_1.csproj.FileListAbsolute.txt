@@ -1,0 +1,10 @@
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\bin\Debug\Temp_1024_5_1.exe.config
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\bin\Debug\Temp_1024_5_1.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\bin\Debug\Temp_1024_5_1.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.csprojResolveAssemblyReference.cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.FormMain.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.Properties.Resources.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.csproj.GenerateResource.Cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.FormSetName.resources

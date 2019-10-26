@@ -110,7 +110,7 @@ namespace Temp
                         case 4: pGeom = m_pMapC2.TrackLine(); break;
                         default: return;
                     }
-                    AeUtils.DrawMapShape(pGeom, m_pMapC2);
+                    AeUtils_old.DrawMapShape(pGeom, m_pMapC2);
                     m_pMapC2.Refresh(esriViewDrawPhase.esriViewGraphics, null, null);
                 }
                 #endregion
@@ -125,7 +125,7 @@ namespace Temp
             Button button = (Button)sender;
             if (button == btn_saveDocument)
             {
-                AeUtils.SaveDocument(m_pMapDoc);
+                AeUtils_old.SaveDocument(m_pMapDoc);
             }
         } 
         #endregion
@@ -142,7 +142,7 @@ namespace Temp
                 for (int i = pMap.LayerCount - 1; i >= 0; i--)
                     axMapControl_eye.Map.AddLayer(pMap.get_Layer(i));
                 IEnvelope pEnvelope = axMapControl_main.ActiveView.Extent;
-                AeUtils.DrawMapShape(pEnvelope, axMapControl_eye.Object as IMapControl2);
+                AeUtils_old.DrawMapShape(pEnvelope, axMapControl_eye.Object as IMapControl2);
             }
             else
                 axMapControl_eye.Visible = false;
@@ -154,11 +154,11 @@ namespace Temp
         {
             #region 在鹰眼控件中更新范围示意框
             IEnvelope pEnvelope = e.newEnvelope as IEnvelope;
-            AeUtils.DrawMapShape(pEnvelope, axMapControl_eye.Object as IMapControl2);
+            AeUtils_old.DrawMapShape(pEnvelope, axMapControl_eye.Object as IMapControl2);
             #endregion
         } 
         #endregion
-
+            
         #region 鹰眼地图控件点击/移动事件
         private void axMapControl_eye_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
         {

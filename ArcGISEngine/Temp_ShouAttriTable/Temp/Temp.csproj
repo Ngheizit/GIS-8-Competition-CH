@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AeUtils.cs" />
+    <Compile Include="AeUtils_old.cs" />
     <Compile Include="Cmd\DeleteLayer.cs" />
     <Compile Include="Cmd\OpenAttriTable.cs" />
     <Compile Include="Cmd\ZoomToLayer.cs" />

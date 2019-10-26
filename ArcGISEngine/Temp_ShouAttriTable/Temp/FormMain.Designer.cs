@@ -96,8 +96,7 @@
             // 
             // btn_saveDocument
             // 
-            this.btn_saveDocument.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_saveDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_saveDocument.Location = new System.Drawing.Point(12, 480);
             this.btn_saveDocument.Name = "btn_saveDocument";
             this.btn_saveDocument.Size = new System.Drawing.Size(89, 23);
@@ -173,8 +172,7 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Controls.Add(this.rbtn_layoutView);
             this.panel1.Controls.Add(this.rbtn_dataView);
             this.panel1.Location = new System.Drawing.Point(107, 480);
