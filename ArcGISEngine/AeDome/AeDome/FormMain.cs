@@ -28,16 +28,24 @@ namespace AeDome
         private String WORKDIR = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
         private IMapControl2 m_pMapC2;
         private IMapDocument m_pMapDoc;
-        private IGraphicsContainer m_pGraphicsLayer;
         private ToolbarMenu m_pToolbarMenu;
         #endregion
 
-        private void FormMain_Load(object sender, EventArgs e)
+        void FormMain_Load(object sender, EventArgs e)
         {
             InitMap();
             InitTOCControl();
+            InitSelect();
 
-            AeUtils.Symbology_UniqueValue(AeUtils.GetFeatureLayerByName(m_pMapC2.Map, "BOUA"), "COLOR", m_pMapC2, axTOCControl_main);
+            AeUtils.Symbology_Proportional(AeUtils.GetFeatureLayerByName(m_pMapC2.Map, "WorldCities"), "POP_RANK", m_pMapC2, axTOCControl_main);
+            //AeUtils.ShowLabel(AeUtils.GetFeatureLayerByName(m_pMapC2.Map, "BOUA"), "NAME", m_pMapC2);
+            //AeUtils.AddNorthArrow(axPageLayoutControl_main, new EnvelopeClass() { 
+            //    XMin = 0.2, YMin = 27, XMax = 0.2, YMax =27
+            //});
+            //AeUtils.AddScalebar(axPageLayoutControl_main, new EnvelopeClass() {
+            //    XMin = 0.2, YMin = 0.2,
+            //    XMax = 2, YMax = 1
+            //});
         }
 
 
@@ -46,7 +54,6 @@ namespace AeDome
         {
             m_pMapC2 = axMapControl_main.Object as IMapControl2;
             m_pMapDoc = new MapDocumentClass();
-            m_pGraphicsLayer = m_pMapC2.Map as IGraphicsContainer;
 
             string sMxdPath = String.Format(@"{0}\{1}", WORKDIR, "Map.mxd");
             if (m_pMapC2.CheckMxFile(sMxdPath))
@@ -60,7 +67,7 @@ namespace AeDome
         } 
         #endregion
 
-        private void Buttons_Click(object sender, EventArgs e)
+        void Buttons_Click(object sender, EventArgs e)
         {
             #region // 地图文档保存
             if ((Button)sender == btn_save)
@@ -71,7 +78,7 @@ namespace AeDome
             #endregion
         }
 
-        private void axMapControl_main_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
+        void axMapControl_main_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
         {
             #region // 地图平移（漫游）
             if (e.button == 4)
@@ -79,9 +86,31 @@ namespace AeDome
                 m_pMapC2.MousePointer = esriControlsMousePointer.esriPointerPanning;
                 m_pMapC2.Pan();
                 m_pMapC2.MousePointer = esriControlsMousePointer.esriPointerArrow;
+                return;
             } 
             #endregion
-
+            #region // 要素选择 2
+            if (e.button == 1 && ckbx_select.Checked)
+            {
+                m_pMapC2.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
+                IGeometry pGeometry = cbbx_select.SelectedIndex == 0 ? m_pMapC2.TrackRectangle() : m_pMapC2.TrackPolygon();
+                (m_pMapC2.Map as IGraphicsContainer).DeleteAllElements();
+                (m_pMapC2.Map as IGraphicsContainer).AddElement(new RectangleElementClass() {
+                    Geometry = pGeometry,
+                    Symbol = new SimpleFillSymbolClass() {
+                        Color = AeUtils.GetRgbColor(0, 0, 0, 0),
+                        Outline = new SimpleLineSymbolClass() { 
+                            Color = AeUtils.GetRgbColor(255, 0, 0), Width = 1
+                        }
+                    }
+                }, 0);
+                m_pMapC2.Refresh(esriViewDrawPhase.esriViewGraphics, null, null);
+                m_pMapC2.Map.SelectByShape(pGeometry, null, false);
+                m_pMapC2.Refresh(esriViewDrawPhase.esriViewGeoSelection, null, null);
+                m_pMapC2.MousePointer = esriControlsMousePointer.esriPointerArrow;
+                return;
+            }
+            #endregion
         }
 
         #region // 鹰眼功能
@@ -104,7 +133,7 @@ namespace AeDome
             (axMapControl_hawkeye.Map as IGraphicsContainer).AddElement(pElement, 0);
             axMapControl_hawkeye.Refresh(esriViewDrawPhase.esriViewGraphics, null, null);
         }
-        private void ckbx_hawkeye_CheckedChanged(object sender, EventArgs e)
+        void ckbx_hawkeye_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbx_hawkeye.Checked)
             {
@@ -120,12 +149,12 @@ namespace AeDome
             }
             else { axMapControl_hawkeye.Visible = false; }
         }
-        private void axMapControl_main_OnExtentUpdated(object sender, IMapControlEvents2_OnExtentUpdatedEvent e)
+        void axMapControl_main_OnExtentUpdated(object sender, IMapControlEvents2_OnExtentUpdatedEvent e)
         {
             IEnvelope pEnvelope = e.newEnvelope as IEnvelope;
             DrawExtent(pEnvelope);
         }
-        private void axMapControl_hawkeye_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
+        void axMapControl_hawkeye_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
         {
             #region // 拖动
             if (e.button == 1)
@@ -149,7 +178,7 @@ namespace AeDome
         #endregion
 
         #region // 数据视图与布局视图的同步
-        private void rdobtn_dataView2layoutView_CheckedChanged(object sender, EventArgs e)
+        void rdobtn_dataView2layoutView_CheckedChanged(object sender, EventArgs e)
         {
             if (rdobtn_layoutView.Checked)
             {
@@ -157,7 +186,7 @@ namespace AeDome
             }
             else { axPageLayoutControl_main.Visible = false; }
         }
-        private void axMapControl_main_OnAfterScreenDraw(object sender, IMapControlEvents2_OnAfterScreenDrawEvent e)
+        void axMapControl_main_OnAfterScreenDraw(object sender, IMapControlEvents2_OnAfterScreenDrawEvent e)
         {
             // 范围同步
             IActiveView pActiveView = axPageLayoutControl_main.ActiveView.FocusMap as IActiveView;
@@ -171,7 +200,7 @@ namespace AeDome
         }
         #endregion
 
-        #region TOCControl事件
+        #region // TOCControl事件
         private void InitTOCControl()
         {
             object[] cmds = new object[] { 
@@ -182,7 +211,7 @@ namespace AeDome
                 m_pToolbarMenu.AddItem(cmds[i]); 
             m_pToolbarMenu.SetHook(m_pMapC2);
         }
-        private void axTOCControl_main_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
+        void axTOCControl_main_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
         {
             IBasicMap map = new MapClass();
             ILayer layer = new FeatureLayerClass();
@@ -197,6 +226,33 @@ namespace AeDome
             }
         } 
         #endregion
+
+        #region // 要素选择 1
+        private void InitSelect()
+        {
+            cbbx_select.SelectedIndex = 0;
+            for (int i = 0; i < m_pMapC2.LayerCount; i++)
+            {
+                listBox_selectLayers.Items.Add(m_pMapC2.get_Layer(i).Name);
+                (m_pMapC2.get_Layer(i) as IFeatureLayer).Selectable = false;
+            }
+        }
+        void listBox_selectLayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < m_pMapC2.LayerCount; i++)
+                (m_pMapC2.get_Layer(i) as IFeatureLayer).Selectable = false;
+            for (int i = 0; i < listBox_selectLayers.SelectedItems.Count; i++)
+                AeUtils.GetFeatureLayerByName(m_pMapC2.Map, listBox_selectLayers.SelectedItems[i].ToString()).Selectable = true;
+        }
+        void btn_clearselect_Click(object sender, EventArgs e)
+        {
+            m_pMapC2.Map.ClearSelection();
+            (m_pMapC2.Map as IGraphicsContainer).DeleteAllElements();
+            m_pMapC2.Refresh();
+        }
+        #endregion
+
+
 
 
 

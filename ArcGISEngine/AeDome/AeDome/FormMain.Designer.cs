@@ -40,14 +40,21 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.rdobtn_dataView = new System.Windows.Forms.RadioButton();
             this.rdobtn_layoutView = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ckbx_select = new System.Windows.Forms.CheckBox();
+            this.cbbx_select = new System.Windows.Forms.ComboBox();
+            this.listBox_selectLayers = new System.Windows.Forms.ListBox();
             this.axMapControl_hawkeye = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axPageLayoutControl_main = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
+            this.btn_clearselect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl_main)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl_hawkeye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl_main)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +94,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_save);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(201, 584);
@@ -164,6 +172,61 @@
             this.rdobtn_layoutView.UseVisualStyleBackColor = true;
             this.rdobtn_layoutView.CheckedChanged += new System.EventHandler(this.rdobtn_dataView2layoutView_CheckedChanged);
             // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.label2);
+            this.flowLayoutPanel4.Controls.Add(this.ckbx_select);
+            this.flowLayoutPanel4.Controls.Add(this.cbbx_select);
+            this.flowLayoutPanel4.Controls.Add(this.listBox_selectLayers);
+            this.flowLayoutPanel4.Controls.Add(this.btn_clearselect);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 85);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(192, 131);
+            this.flowLayoutPanel4.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "选择";
+            // 
+            // ckbx_select
+            // 
+            this.ckbx_select.AutoSize = true;
+            this.ckbx_select.Location = new System.Drawing.Point(38, 5);
+            this.ckbx_select.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.ckbx_select.Name = "ckbx_select";
+            this.ckbx_select.Size = new System.Drawing.Size(15, 14);
+            this.ckbx_select.TabIndex = 1;
+            this.ckbx_select.UseVisualStyleBackColor = true;
+            // 
+            // cbbx_select
+            // 
+            this.cbbx_select.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbx_select.FormattingEnabled = true;
+            this.cbbx_select.Items.AddRange(new object[] {
+            "矩形",
+            "多边形"});
+            this.cbbx_select.Location = new System.Drawing.Point(59, 3);
+            this.cbbx_select.Name = "cbbx_select";
+            this.cbbx_select.Size = new System.Drawing.Size(119, 20);
+            this.cbbx_select.TabIndex = 0;
+            // 
+            // listBox_selectLayers
+            // 
+            this.listBox_selectLayers.FormattingEnabled = true;
+            this.listBox_selectLayers.ItemHeight = 12;
+            this.listBox_selectLayers.Location = new System.Drawing.Point(3, 29);
+            this.listBox_selectLayers.Name = "listBox_selectLayers";
+            this.listBox_selectLayers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBox_selectLayers.Size = new System.Drawing.Size(175, 64);
+            this.listBox_selectLayers.TabIndex = 3;
+            this.listBox_selectLayers.SelectedIndexChanged += new System.EventHandler(this.listBox_selectLayers_SelectedIndexChanged);
+            // 
             // axMapControl_hawkeye
             // 
             this.axMapControl_hawkeye.Location = new System.Drawing.Point(614, 0);
@@ -182,6 +245,16 @@
             this.axPageLayoutControl_main.Size = new System.Drawing.Size(698, 584);
             this.axPageLayoutControl_main.TabIndex = 5;
             this.axPageLayoutControl_main.Visible = false;
+            // 
+            // btn_clearselect
+            // 
+            this.btn_clearselect.Location = new System.Drawing.Point(3, 99);
+            this.btn_clearselect.Name = "btn_clearselect";
+            this.btn_clearselect.Size = new System.Drawing.Size(175, 23);
+            this.btn_clearselect.TabIndex = 4;
+            this.btn_clearselect.Text = "button1";
+            this.btn_clearselect.UseVisualStyleBackColor = true;
+            this.btn_clearselect.Click += new System.EventHandler(this.btn_clearselect_Click);
             // 
             // FormMain
             // 
@@ -205,6 +278,8 @@
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl_hawkeye)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl_main)).EndInit();
             this.ResumeLayout(false);
@@ -226,6 +301,12 @@
         private System.Windows.Forms.RadioButton rdobtn_layoutView;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl_main;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox ckbx_select;
+        private System.Windows.Forms.ComboBox cbbx_select;
+        private System.Windows.Forms.ListBox listBox_selectLayers;
+        private System.Windows.Forms.Button btn_clearselect;
 
     }
 }
