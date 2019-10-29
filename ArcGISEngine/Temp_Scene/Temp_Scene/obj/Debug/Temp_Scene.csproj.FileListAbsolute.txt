@@ -1,0 +1,9 @@
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\bin\Debug\Temp_Scene.exe.config
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\bin\Debug\Temp_Scene.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\bin\Debug\Temp_Scene.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.csprojResolveAssemblyReference.cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.FormMain.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.Properties.Resources.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.csproj.GenerateResource.Cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.pdb

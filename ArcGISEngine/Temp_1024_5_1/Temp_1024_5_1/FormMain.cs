@@ -77,6 +77,16 @@ namespace Temp_1024_5_1
 
             // d. 在监测站点列表中选择一个监测站点后，在地图上高亮显示，缩放至该监测站点，并显示该监测站点的属性信息 第①步
             setListBox();
+
+
+
+            object[] cmds = new object[] { 
+                new OpenAttriTable()
+            };
+            m_pToolbarMenu = new ToolbarMenu();
+            for (int i = 0; i < cmds.Length; i++)
+                m_pToolbarMenu.AddItem(cmds[i]);
+            m_pToolbarMenu.SetHook(m_pMapC2);
         }
 
         void Button_Click(object sender, EventArgs e)
@@ -113,7 +123,8 @@ namespace Temp_1024_5_1
             #endregion
             #region 链接
             if ((Button)sender == btn_link)
-            {
+            {;
+
                 Geoprocessor gp = new Geoprocessor()
                 {
                     OverwriteOutput = true
@@ -121,22 +132,24 @@ namespace Temp_1024_5_1
                 string table = debugDir + "\\AirQuality\\kqzlzk.dbf";
                 ESRI.ArcGIS.ConversionTools.ExcelToTable pExcelToTavle = new ESRI.ArcGIS.ConversionTools.ExcelToTable()
                 {
-                    Input_Excel_File = debugDir + "\\AirQuality\\空气质量状况.xlsx",
+                    Input_Excel_File = debugDir + "\\AirQuality\\空气质量状况.xls",
                     Output_Table = table,
                     Sheet = "Sheet1"
                 };
                 gp.Execute(pExcelToTavle, null);
 
                 IFeatureLayer pFeatureLayer = AeUtils.GetFeatureLayerByName(m_pMapC2.Map, "监测站");
+
                 ESRI.ArcGIS.DataManagementTools.JoinField pJoinField = new ESRI.ArcGIS.DataManagementTools.JoinField()
                 {
                     in_data = pFeatureLayer,
                     in_field = "Name",
                     join_table = table,
                     join_field = "NAME",
-                    fields = "StationID,PM2_5,SO2,NO2"
+                    fields = "StationID;PM2_5;SO2;NO2"
                 };
                 gp.Execute(pJoinField, null);
+                
             } 
             #endregion
             #region 注记
@@ -350,6 +363,23 @@ namespace Temp_1024_5_1
                 m_pMapC2.Extent = pEnv;
                 showInfo(pFeature);
             };
+        }
+
+        private ToolbarMenu m_pToolbarMenu;
+        private void axTOCControl_main_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
+        {
+            IBasicMap map = new MapClass();
+            ILayer layer = new FeatureLayerClass();
+            object index = new object();
+            object other = new object();
+            esriTOCControlItem item = new esriTOCControlItem();
+            axTOCControl_main.HitTest(e.x, e.y, ref item, ref map, ref layer, ref other, ref index);
+            if (e.button == 2 && item == esriTOCControlItem.esriTOCControlItemLayer)
+            {
+                (m_pMapC2 as IMapControl4).CustomProperty = layer;
+                m_pToolbarMenu.PopupMenu(e.x, e.y, axTOCControl_main.hWnd);
+            }
+
         }
 
 

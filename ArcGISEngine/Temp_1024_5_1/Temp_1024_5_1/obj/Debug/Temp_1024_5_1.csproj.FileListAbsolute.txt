@@ -8,3 +8,5 @@ D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.exe
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.pdb
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.FormSetName.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.FromAttributeTable.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1024_5_1\Temp_1024_5_1\obj\Debug\Temp_1024_5_1.ProgressBar.resources

@@ -73,6 +73,7 @@
             this.axTOCControl_main.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl_main.OcxState")));
             this.axTOCControl_main.Size = new System.Drawing.Size(201, 301);
             this.axTOCControl_main.TabIndex = 2;
+            this.axTOCControl_main.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl_main_OnMouseDown);
             // 
             // btn_Identify
             // 

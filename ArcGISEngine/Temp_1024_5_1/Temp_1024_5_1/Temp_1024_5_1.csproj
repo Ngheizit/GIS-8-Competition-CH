@@ -105,13 +105,32 @@
     <Compile Include="FormSetName.Designer.cs">
       <DependentUpon>FormSetName.cs</DependentUpon>
     </Compile>
+    <Compile Include="FromAttributeTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromAttributeTable.designer.cs">
+      <DependentUpon>FromAttributeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenAttriTable.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressBar.designer.cs">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetName.resx">
       <DependentUpon>FormSetName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromAttributeTable.resx">
+      <DependentUpon>FromAttributeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressBar.resx">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
