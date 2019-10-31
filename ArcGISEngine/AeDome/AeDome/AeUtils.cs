@@ -10,6 +10,8 @@ using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.esriSystem;
+using ESRI.ArcGIS.Output;
+using System.Windows.Forms;
 
 namespace AeDome
 {
@@ -344,7 +346,54 @@ namespace AeDome
         } 
         #endregion
 
+        #region // 打印输出地图
+        public static void ExportMap(IActiveView activeView)
+        {
+            SaveFileDialog sfg = new SaveFileDialog()
+            {
+                Title = "导出jpg格式图片",
+                Filter = "JPG图片(*.jpg)|*.jpg"
+            };
+            if (sfg.ShowDialog() == DialogResult.OK)
+            {
+                // 打印机接口
+                IExporter pExporter = new JpegExporterClass()
+                {
+                    ExportFileName = sfg.FileName,
+                    Resolution = (short)activeView.ScreenDisplay.DisplayTransformation.Resolution
+                };
 
+                // 设置输出地图范围
+                tagRECT pTagRECT = activeView.ScreenDisplay.DisplayTransformation.get_DeviceFrame();
+                IEnvelope pEnvelope = new EnvelopeClass()
+                {
+                    XMin = pTagRECT.left,
+                    XMax = pTagRECT.right,
+                    YMin = pTagRECT.bottom,
+                    YMax = pTagRECT.top
+                };
+                pExporter.PixelBounds = pEnvelope;
+
+                //// 输出地图
+                activeView.Output(pExporter.StartExporting(), pExporter.Resolution, ref pTagRECT, activeView.Extent, null);
+                Application.DoEvents();
+                pExporter.FinishExporting();
+                MessageBox.Show("已将地图导出为jpg格式图片");
+            }
+        }
+        #endregion
+
+        #region // SQL要素选择
+        public static void SelectBySQL(string strSQL, IFeatureLayer featureLayer, IMapControl2 mapControl)
+        {
+            mapControl.Map.ClearSelection();
+            IQueryFilter pQueryFilter = new QueryFilter() as IQueryFilter;
+            pQueryFilter.WhereClause = strSQL;
+            IFeatureSelection pFeatureSelection = featureLayer as IFeatureSelection;
+            pFeatureSelection.SelectFeatures(pQueryFilter, esriSelectionResultEnum.esriSelectionResultNew, false);
+            mapControl.Refresh(esriViewDrawPhase.esriViewGeoSelection, null, null);
+        }
+        #endregion
 
     }
 }

@@ -45,9 +45,12 @@
             this.ckbx_select = new System.Windows.Forms.CheckBox();
             this.cbbx_select = new System.Windows.Forms.ComboBox();
             this.listBox_selectLayers = new System.Windows.Forms.ListBox();
+            this.btn_clearselect = new System.Windows.Forms.Button();
             this.axMapControl_hawkeye = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axPageLayoutControl_main = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
-            this.btn_clearselect = new System.Windows.Forms.Button();
+            this.btn_ExportMap = new System.Windows.Forms.Button();
+            this.btn_selectBySQL = new System.Windows.Forms.Button();
+            this.tbx_selectBySQL = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl_main)).BeginInit();
@@ -95,6 +98,7 @@
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
+            this.flowLayoutPanel1.Controls.Add(this.btn_ExportMap);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(201, 584);
@@ -179,9 +183,11 @@
             this.flowLayoutPanel4.Controls.Add(this.cbbx_select);
             this.flowLayoutPanel4.Controls.Add(this.listBox_selectLayers);
             this.flowLayoutPanel4.Controls.Add(this.btn_clearselect);
+            this.flowLayoutPanel4.Controls.Add(this.tbx_selectBySQL);
+            this.flowLayoutPanel4.Controls.Add(this.btn_selectBySQL);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 85);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(192, 131);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(192, 161);
             this.flowLayoutPanel4.TabIndex = 5;
             // 
             // label2
@@ -222,10 +228,19 @@
             this.listBox_selectLayers.ItemHeight = 12;
             this.listBox_selectLayers.Location = new System.Drawing.Point(3, 29);
             this.listBox_selectLayers.Name = "listBox_selectLayers";
-            this.listBox_selectLayers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox_selectLayers.Size = new System.Drawing.Size(175, 64);
             this.listBox_selectLayers.TabIndex = 3;
             this.listBox_selectLayers.SelectedIndexChanged += new System.EventHandler(this.listBox_selectLayers_SelectedIndexChanged);
+            // 
+            // btn_clearselect
+            // 
+            this.btn_clearselect.Location = new System.Drawing.Point(3, 99);
+            this.btn_clearselect.Name = "btn_clearselect";
+            this.btn_clearselect.Size = new System.Drawing.Size(175, 23);
+            this.btn_clearselect.TabIndex = 4;
+            this.btn_clearselect.Text = "清空选择集和图形元素";
+            this.btn_clearselect.UseVisualStyleBackColor = true;
+            this.btn_clearselect.Click += new System.EventHandler(this.btn_clearselect_Click);
             // 
             // axMapControl_hawkeye
             // 
@@ -246,15 +261,32 @@
             this.axPageLayoutControl_main.TabIndex = 5;
             this.axPageLayoutControl_main.Visible = false;
             // 
-            // btn_clearselect
+            // btn_ExportMap
             // 
-            this.btn_clearselect.Location = new System.Drawing.Point(3, 99);
-            this.btn_clearselect.Name = "btn_clearselect";
-            this.btn_clearselect.Size = new System.Drawing.Size(175, 23);
-            this.btn_clearselect.TabIndex = 4;
-            this.btn_clearselect.Text = "button1";
-            this.btn_clearselect.UseVisualStyleBackColor = true;
-            this.btn_clearselect.Click += new System.EventHandler(this.btn_clearselect_Click);
+            this.btn_ExportMap.Location = new System.Drawing.Point(3, 252);
+            this.btn_ExportMap.Name = "btn_ExportMap";
+            this.btn_ExportMap.Size = new System.Drawing.Size(192, 23);
+            this.btn_ExportMap.TabIndex = 6;
+            this.btn_ExportMap.Text = "打印输出地图";
+            this.btn_ExportMap.UseVisualStyleBackColor = true;
+            this.btn_ExportMap.Click += new System.EventHandler(this.btn_ExportMap_Click);
+            // 
+            // btn_selectBySQL
+            // 
+            this.btn_selectBySQL.Location = new System.Drawing.Point(104, 128);
+            this.btn_selectBySQL.Name = "btn_selectBySQL";
+            this.btn_selectBySQL.Size = new System.Drawing.Size(75, 23);
+            this.btn_selectBySQL.TabIndex = 7;
+            this.btn_selectBySQL.Text = "SQL选择";
+            this.btn_selectBySQL.UseVisualStyleBackColor = true;
+            this.btn_selectBySQL.Click += new System.EventHandler(this.btn_selectBySQL_Click);
+            // 
+            // tbx_selectBySQL
+            // 
+            this.tbx_selectBySQL.Location = new System.Drawing.Point(3, 128);
+            this.tbx_selectBySQL.Name = "tbx_selectBySQL";
+            this.tbx_selectBySQL.Size = new System.Drawing.Size(95, 21);
+            this.tbx_selectBySQL.TabIndex = 8;
             // 
             // FormMain
             // 
@@ -307,6 +339,9 @@
         private System.Windows.Forms.ComboBox cbbx_select;
         private System.Windows.Forms.ListBox listBox_selectLayers;
         private System.Windows.Forms.Button btn_clearselect;
+        private System.Windows.Forms.Button btn_ExportMap;
+        private System.Windows.Forms.Button btn_selectBySQL;
+        private System.Windows.Forms.TextBox tbx_selectBySQL;
 
     }
 }

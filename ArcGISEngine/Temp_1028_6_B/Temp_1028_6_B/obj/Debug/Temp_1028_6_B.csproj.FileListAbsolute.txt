@@ -7,3 +7,4 @@ D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.csproj.GenerateResource.Cache
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.exe
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.FormProgressBar.resources

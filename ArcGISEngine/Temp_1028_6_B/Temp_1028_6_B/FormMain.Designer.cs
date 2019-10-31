@@ -33,12 +33,12 @@
             this.axMapControl_main = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axTOCControl_main = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_visit = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_exportMap = new System.Windows.Forms.Button();
+            this.btn_viewPoint = new System.Windows.Forms.Button();
             this.btn_openMxd = new System.Windows.Forms.Button();
             this.axToolbarControl_main = new ESRI.ArcGIS.Controls.AxToolbarControl();
-            this.btn_viewPoint = new System.Windows.Forms.Button();
-            this.btn_exportMap = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_visit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl_main)).BeginInit();
@@ -86,6 +86,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "功能区";
             // 
+            // btn_visit
+            // 
+            this.btn_visit.Location = new System.Drawing.Point(232, 21);
+            this.btn_visit.Name = "btn_visit";
+            this.btn_visit.Size = new System.Drawing.Size(99, 23);
+            this.btn_visit.TabIndex = 4;
+            this.btn_visit.Text = "可见性分析";
+            this.btn_visit.UseVisualStyleBackColor = true;
+            this.btn_visit.Click += new System.EventHandler(this.btn_visit_Click);
+            // 
+            // btn_save
+            // 
+            this.btn_save.Location = new System.Drawing.Point(419, 20);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(75, 23);
+            this.btn_save.TabIndex = 3;
+            this.btn_save.Text = "保存地图";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // btn_exportMap
+            // 
+            this.btn_exportMap.Location = new System.Drawing.Point(337, 20);
+            this.btn_exportMap.Name = "btn_exportMap";
+            this.btn_exportMap.Size = new System.Drawing.Size(75, 23);
+            this.btn_exportMap.TabIndex = 2;
+            this.btn_exportMap.Text = "导出地图";
+            this.btn_exportMap.UseVisualStyleBackColor = true;
+            this.btn_exportMap.Click += new System.EventHandler(this.btn_exportMap_Click);
+            // 
+            // btn_viewPoint
+            // 
+            this.btn_viewPoint.Location = new System.Drawing.Point(107, 20);
+            this.btn_viewPoint.Name = "btn_viewPoint";
+            this.btn_viewPoint.Size = new System.Drawing.Size(118, 23);
+            this.btn_viewPoint.TabIndex = 1;
+            this.btn_viewPoint.Text = "添加观看预设点";
+            this.btn_viewPoint.UseVisualStyleBackColor = true;
+            this.btn_viewPoint.Click += new System.EventHandler(this.btn_viewPoint_Click);
+            // 
             // btn_openMxd
             // 
             this.btn_openMxd.Location = new System.Drawing.Point(6, 20);
@@ -103,46 +143,6 @@
             this.axToolbarControl_main.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axToolbarControl_main.OcxState")));
             this.axToolbarControl_main.Size = new System.Drawing.Size(580, 28);
             this.axToolbarControl_main.TabIndex = 5;
-            // 
-            // btn_viewPoint
-            // 
-            this.btn_viewPoint.Location = new System.Drawing.Point(107, 20);
-            this.btn_viewPoint.Name = "btn_viewPoint";
-            this.btn_viewPoint.Size = new System.Drawing.Size(118, 23);
-            this.btn_viewPoint.TabIndex = 1;
-            this.btn_viewPoint.Text = "添加观看预设点";
-            this.btn_viewPoint.UseVisualStyleBackColor = true;
-            this.btn_viewPoint.Click += new System.EventHandler(this.btn_viewPoint_Click);
-            // 
-            // btn_exportMap
-            // 
-            this.btn_exportMap.Location = new System.Drawing.Point(337, 20);
-            this.btn_exportMap.Name = "btn_exportMap";
-            this.btn_exportMap.Size = new System.Drawing.Size(75, 23);
-            this.btn_exportMap.TabIndex = 2;
-            this.btn_exportMap.Text = "导出地图";
-            this.btn_exportMap.UseVisualStyleBackColor = true;
-            this.btn_exportMap.Click += new System.EventHandler(this.btn_exportMap_Click);
-            // 
-            // btn_save
-            // 
-            this.btn_save.Location = new System.Drawing.Point(419, 20);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
-            this.btn_save.TabIndex = 3;
-            this.btn_save.Text = "保存地图";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // btn_visit
-            // 
-            this.btn_visit.Location = new System.Drawing.Point(232, 21);
-            this.btn_visit.Name = "btn_visit";
-            this.btn_visit.Size = new System.Drawing.Size(99, 23);
-            this.btn_visit.TabIndex = 4;
-            this.btn_visit.Text = "可见性分析";
-            this.btn_visit.UseVisualStyleBackColor = true;
-            this.btn_visit.Click += new System.EventHandler(this.btn_visit_Click);
             // 
             // FormMain
             // 

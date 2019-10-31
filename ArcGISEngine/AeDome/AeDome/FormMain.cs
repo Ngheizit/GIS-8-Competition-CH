@@ -38,14 +38,6 @@ namespace AeDome
             InitSelect();
 
             AeUtils.Symbology_Proportional(AeUtils.GetFeatureLayerByName(m_pMapC2.Map, "WorldCities"), "POP_RANK", m_pMapC2, axTOCControl_main);
-            //AeUtils.ShowLabel(AeUtils.GetFeatureLayerByName(m_pMapC2.Map, "BOUA"), "NAME", m_pMapC2);
-            //AeUtils.AddNorthArrow(axPageLayoutControl_main, new EnvelopeClass() { 
-            //    XMin = 0.2, YMin = 27, XMax = 0.2, YMax =27
-            //});
-            //AeUtils.AddScalebar(axPageLayoutControl_main, new EnvelopeClass() {
-            //    XMin = 0.2, YMin = 0.2,
-            //    XMax = 2, YMax = 1
-            //});
         }
 
 
@@ -250,7 +242,22 @@ namespace AeDome
             (m_pMapC2.Map as IGraphicsContainer).DeleteAllElements();
             m_pMapC2.Refresh();
         }
+        private void btn_selectBySQL_Click(object sender, EventArgs e)
+        {
+            string sql = tbx_selectBySQL.Text;
+            IFeatureLayer pFeatureLayer = AeUtils.GetFeatureLayerByName(m_pMapC2.Map, listBox_selectLayers.SelectedItem.ToString());
+            AeUtils.SelectBySQL(sql, pFeatureLayer, m_pMapC2);
+        }
         #endregion
+
+        #region // 打印输出地图
+        private void btn_ExportMap_Click(object sender, EventArgs e)
+        {
+            AeUtils.ExportMap(axPageLayoutControl_main.ActiveView);
+        } 
+        #endregion
+
+
 
 
 

@@ -8,3 +8,4 @@ D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.csproj
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.exe
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.pdb
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.Froms.FromAttributeTable.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.ProgressBar.resources
