@@ -8,3 +8,13 @@ D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.exe
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.pdb
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.FormProgressBar.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\bin\Debug\Temp_1028_6_B.exe.config
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.pdb
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\bin\Debug\Temp_1028_6_B.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\bin\Debug\Temp_1028_6_B.pdb
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.csprojResolveAssemblyReference.cache
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.FormMain.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.FormProgressBar.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.Properties.Resources.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1028_6_B\Temp_1028_6_B\obj\Debug\Temp_1028_6_B.csproj.GenerateResource.Cache
