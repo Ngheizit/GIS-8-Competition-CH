@@ -106,13 +106,13 @@ namespace Temp_1101_4_A
             IFeature pFeature = pFeatureCursor.NextFeature();
             while (pFeature != null)
             {
-                pFeature.Shape.
+                pExtrude.ExtrudeFromTo(0, (double)pFeature.get_Value(3), pFeature.Shape);
 
                 pFeature = pFeatureCursor.NextFeature();
             }
+            pFea
 
-
-            m_pSceneCtl.SceneGraph.RefreshViewers();
+            //m_pSceneCtl.SceneGraph.RefreshViewers();
         }
     }
 }
