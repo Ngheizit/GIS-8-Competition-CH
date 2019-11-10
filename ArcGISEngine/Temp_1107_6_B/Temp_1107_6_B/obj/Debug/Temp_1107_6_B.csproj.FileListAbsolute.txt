@@ -1,0 +1,9 @@
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1107_6_B\Temp_1107_6_B\bin\Debug\Temp_1107_6_B.exe.config
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1107_6_B\Temp_1107_6_B\bin\Debug\Temp_1107_6_B.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1107_6_B\Temp_1107_6_B\bin\Debug\Temp_1107_6_B.pdb
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1107_6_B\Temp_1107_6_B\obj\Debug\Temp_1107_6_B.csprojResolveAssemblyReference.cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1107_6_B\Temp_1107_6_B\obj\Debug\Temp_1107_6_B.FormMain.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1107_6_B\Temp_1107_6_B\obj\Debug\Temp_1107_6_B.Properties.Resources.resources
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1107_6_B\Temp_1107_6_B\obj\Debug\Temp_1107_6_B.csproj.GenerateResource.Cache
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1107_6_B\Temp_1107_6_B\obj\Debug\Temp_1107_6_B.exe
+D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1107_6_B\Temp_1107_6_B\obj\Debug\Temp_1107_6_B.pdb

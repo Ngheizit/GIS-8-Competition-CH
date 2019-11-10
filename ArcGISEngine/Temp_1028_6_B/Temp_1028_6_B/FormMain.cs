@@ -122,118 +122,118 @@ namespace Temp_1028_6_B
 
         private void btn_visit_Click(object sender, EventArgs e)
         {
-            FormProgressBar bar = new FormProgressBar(13);
-            bar.Show();
+            //FormProgressBar bar = new FormProgressBar(13);
+            //bar.Show();
 
-            IFeatureLayer pFeatureLayer_Building = GetFeatureLayerByName("Building");
-            IFeatureLayer pFeatureLayer_Action = GetFeatureLayerByName("Action");
-            IFeatureLayer pFeatureLayer_Viewer = GetFeatureLayerByName("Viewer");
-            bar.GO();
+            //IFeatureLayer pFeatureLayer_Building = GetFeatureLayerByName("Building");
+            //IFeatureLayer pFeatureLayer_Action = GetFeatureLayerByName("Action");
+            //IFeatureLayer pFeatureLayer_Viewer = GetFeatureLayerByName("Viewer");
+            //bar.GO();
 
-            Geoprocessor gp = new Geoprocessor() { 
-                OverwriteOutput = true,
-                AddOutputsToMap = true
-            };
-            bar.GO();
+            //Geoprocessor gp = new Geoprocessor() { 
+            //    OverwriteOutput = true,
+            //    AddOutputsToMap = true
+            //};
+            //bar.GO();
 
-            // 联合
-            ESRI.ArcGIS.AnalysisTools.Union pUnion = new ESRI.ArcGIS.AnalysisTools.Union() {
-                in_features = DEBUG_DIR + "Action.shp" + ";" + DEBUG_DIR + "Building.shp",
-                out_feature_class = DEBUG_DIR + "BuildingAndAction.shp"
-            };
-            gp.Execute(pUnion, null);
-            bar.GO();
+            //// 联合
+            //ESRI.ArcGIS.AnalysisTools.Union pUnion = new ESRI.ArcGIS.AnalysisTools.Union() {
+            //    in_features = DEBUG_DIR + "Action.shp" + ";" + DEBUG_DIR + "Building.shp",
+            //    out_feature_class = DEBUG_DIR + "BuildingAndAction.shp"
+            //};
+            //gp.Execute(pUnion, null);
+            //bar.GO();
 
-            // 面转栅格
-            ESRI.ArcGIS.ConversionTools.PolygonToRaster pPolygonToRaster = new ESRI.ArcGIS.ConversionTools.PolygonToRaster() { 
-                in_features = DEBUG_DIR + "BuildingAndAction.shp",
-                out_rasterdataset = DEBUG_DIR + "RsBuildingAndAction.tif",
-                value_field = "height",
-                cellsize = 0.000001
-            };
-            gp.Execute(pPolygonToRaster, null);
-            bar.GO();
+            //// 面转栅格
+            //ESRI.ArcGIS.ConversionTools.PolygonToRaster pPolygonToRaster = new ESRI.ArcGIS.ConversionTools.PolygonToRaster() { 
+            //    in_features = DEBUG_DIR + "BuildingAndAction.shp",
+            //    out_rasterdataset = DEBUG_DIR + "RsBuildingAndAction.tif",
+            //    value_field = "height",
+            //    cellsize = 0.000001
+            //};
+            //gp.Execute(pPolygonToRaster, null);
+            //bar.GO();
 
-            // 观测点要素迭代
-            IFeatureCursor pFeatureCursor = pFeatureLayer_Viewer.FeatureClass.Search(null, false);
-            IFeature pFeature = pFeatureCursor.NextFeature();
-            int i = 0;
-            while (pFeature != null)
-            {
-                m_pMapC2.Map.ClearSelection();
-                m_pMapC2.Refresh(esriViewDrawPhase.esriViewGeoSelection, null, null);
-                m_pMapC2.Map.SelectFeature(pFeatureLayer_Viewer, pFeature);
-                m_pMapC2.Refresh(esriViewDrawPhase.esriViewGeoSelection, null, null);
+            //// 观测点要素迭代
+            //IFeatureCursor pFeatureCursor = pFeatureLayer_Viewer.FeatureClass.Search(null, false);
+            //IFeature pFeature = pFeatureCursor.NextFeature();
+            //int i = 0;
+            //while (pFeature != null)
+            //{
+            //    m_pMapC2.Map.ClearSelection();
+            //    m_pMapC2.Refresh(esriViewDrawPhase.esriViewGeoSelection, null, null);
+            //    m_pMapC2.Map.SelectFeature(pFeatureLayer_Viewer, pFeature);
+            //    m_pMapC2.Refresh(esriViewDrawPhase.esriViewGeoSelection, null, null);
 
-                // 视域分析
-                ESRI.ArcGIS.SpatialAnalystTools.Viewshed pViewshed = new ESRI.ArcGIS.SpatialAnalystTools.Viewshed() {
-                    in_observer_features = pFeatureLayer_Viewer,
-                    in_raster = DEBUG_DIR + "RsBuildingAndAction.tif",
-                    out_raster = DEBUG_DIR + "RsVisibility_" + (i).ToString() + ".tif"
-                };
-                gp.Execute(pViewshed, null);
-                bar.GO();
+            //    // 视域分析
+            //    ESRI.ArcGIS.SpatialAnalystTools.Viewshed pViewshed = new ESRI.ArcGIS.SpatialAnalystTools.Viewshed() {
+            //        in_observer_features = pFeatureLayer_Viewer,
+            //        in_raster = DEBUG_DIR + "RsBuildingAndAction.tif",
+            //        out_raster = DEBUG_DIR + "RsVisibility_" + (i).ToString() + ".tif"
+            //    };
+            //    gp.Execute(pViewshed, null);
+            //    bar.GO();
 
-                // 掩模
-                ESRI.ArcGIS.SpatialAnalystTools.ExtractByMask pExtractByMask = new ESRI.ArcGIS.SpatialAnalystTools.ExtractByMask() {
-                    in_raster = DEBUG_DIR + "RsVisibility_" + (i).ToString() + ".tif",
-                    in_mask_data = pFeatureLayer_Action,
-                    out_raster = DEBUG_DIR + "RsVisAction_" + (i).ToString() + ".tif"
-                };
-                gp.Execute(pExtractByMask, null);
-                bar.GO();
+            //    // 掩模
+            //    ESRI.ArcGIS.SpatialAnalystTools.ExtractByMask pExtractByMask = new ESRI.ArcGIS.SpatialAnalystTools.ExtractByMask() {
+            //        in_raster = DEBUG_DIR + "RsVisibility_" + (i).ToString() + ".tif",
+            //        in_mask_data = pFeatureLayer_Action,
+            //        out_raster = DEBUG_DIR + "RsVisAction_" + (i).ToString() + ".tif"
+            //    };
+            //    gp.Execute(pExtractByMask, null);
+            //    bar.GO();
 
-                // 栅格转面
-                ESRI.ArcGIS.ConversionTools.RasterToPolygon pRasterToPolygon = new ESRI.ArcGIS.ConversionTools.RasterToPolygon() {
-                    in_raster = DEBUG_DIR + "RsVisAction_" + (i).ToString() + ".tif",
-                    raster_field = "Value",
-                    out_polygon_features = DEBUG_DIR + "VisAction_" + (i).ToString() + ".shp"
-                };
-                gp.Execute(pRasterToPolygon, null);
-                m_pMapC2.AddShapeFile(DEBUG_DIR, "VisAction_" + (i).ToString() + ".shp");
-                IFeatureLayer pFeatureLayer_vis = GetFeatureLayerByName("visaction_" + (i).ToString());
-                IFeatureCursor pFeatureCursor_vis = pFeatureLayer_vis.FeatureClass.Search(null, false);
-                IFeature pFeat = pFeatureCursor_vis.NextFeature();
-                while (pFeat != null)
-                {
-                    if (pFeat.get_Value(3).ToString() == "1")
-                    {
-                        IArea pArea = pFeat.Shape as IArea;
-                        MessageBox.Show(pArea.Area.ToString());
-                    }
-                    pFeat = pFeatureCursor_vis.NextFeature();
-                }
-                bar.GO();
+            //    // 栅格转面
+            //    ESRI.ArcGIS.ConversionTools.RasterToPolygon pRasterToPolygon = new ESRI.ArcGIS.ConversionTools.RasterToPolygon() {
+            //        in_raster = DEBUG_DIR + "RsVisAction_" + (i).ToString() + ".tif",
+            //        raster_field = "Value",
+            //        out_polygon_features = DEBUG_DIR + "VisAction_" + (i).ToString() + ".shp"
+            //    };
+            //    gp.Execute(pRasterToPolygon, null);
+            //    m_pMapC2.AddShapeFile(DEBUG_DIR, "VisAction_" + (i).ToString() + ".shp");
+            //    IFeatureLayer pFeatureLayer_vis = GetFeatureLayerByName("visaction_" + (i).ToString());
+            //    IFeatureCursor pFeatureCursor_vis = pFeatureLayer_vis.FeatureClass.Search(null, false);
+            //    IFeature pFeat = pFeatureCursor_vis.NextFeature();
+            //    while (pFeat != null)
+            //    {
+            //        if (pFeat.get_Value(3).ToString() == "1")
+            //        {
+            //            IArea pArea = pFeat.Shape as IArea;
+            //            MessageBox.Show(pArea.Area.ToString());
+            //        }
+            //        pFeat = pFeatureCursor_vis.NextFeature();
+            //    }
+            //    bar.GO();
 
-                pFeature = pFeatureCursor.NextFeature();
-                i += 1;
-            }
+            //    pFeature = pFeatureCursor.NextFeature();
+            //    i += 1;
+            //}
 
 
-            bar.OK();
+            //bar.OK();
 
             //m_pMapC2.Map.DeleteLayer(GetFeatureLayerByName("Viewer"));
             //m_pMapC2.Refresh();
 
-            //Geoprocessor gp = new Geoprocessor()
-            //{
-            //    OverwriteOutput = true,
-            //    //TemporaryMapLayers = false
-                
-            //    //AddOutputsToMap = true
-            //};
+            Geoprocessor gp = new Geoprocessor()
+            {
+                OverwriteOutput = true,
+                //TemporaryMapLayers = false
 
-            //gp.AddToolbox(DEBUG_DIR + "toolbox.tbx");
+                //AddOutputsToMap = true
+            };
 
-            //IVariantArray parameters = new VarArrayClass();
-            //parameters.RemoveAll();
-            //parameters.Add(DEBUG_DIR + "Action.shp");
-            //parameters.Add(DEBUG_DIR + "Building.shp");
-            //parameters.Add(GetFeatureLayerByName("Viewer"));
-            ////parameters.Add(DEBUG_DIR + "Viewer.shp");
-            //parameters.Add(DEBUG_DIR + "VisitArea_%Value%.shp");
+            gp.AddToolbox(DEBUG_DIR + "toolbox.tbx");
 
-            //gp.Execute("myMod", parameters, null);
+            IVariantArray parameters = new VarArrayClass();
+            parameters.RemoveAll();
+            parameters.Add(DEBUG_DIR + "Action.shp");
+            parameters.Add(DEBUG_DIR + "Building.shp");
+            parameters.Add(GetFeatureLayerByName("Viewer"));
+            //parameters.Add(DEBUG_DIR + "Viewer.shp");
+            parameters.Add(DEBUG_DIR + "VisitArea_%Value%.shp");
+
+            gp.Execute("myMod", parameters, null);
             //axTOCControl_main.EnableLayerDragDrop = true;
             //m_pMapC2.AddShapeFile(DEBUG_DIR, "VisitArea_0.shp");
             //m_pMapC2.AddShapeFile(DEBUG_DIR, "VisitArea_1.shp");

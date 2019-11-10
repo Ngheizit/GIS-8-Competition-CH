@@ -287,7 +287,7 @@ namespace AeDome
             element.Geometry = envelope;
             element.Activate(pageLayoutControl.ActiveView.ScreenDisplay);
             (pageLayoutControl.PageLayout as IGraphicsContainer).AddElement(element, 0);
-            IMapSurround mapSurround = mapSurroundFrame.MapSurround;
+            IMapSurround mapSurround = mapSurroundFrame.MapSurround;    
 
             IScaleBar markerScaleBar = (IScaleBar)(mapSurround);
             markerScaleBar.LabelPosition = esriVertPosEnum.esriBelow;
