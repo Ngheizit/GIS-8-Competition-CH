@@ -8,3 +8,6 @@ D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1101_4_A\Temp_1101_4_A\obj\Debug
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1101_4_A\Temp_1101_4_A\obj\Debug\Temp_1101_4_A.exe
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1101_4_A\Temp_1101_4_A\obj\Debug\Temp_1101_4_A.pdb
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_1101_4_A\Temp_1101_4_A\obj\Debug\Temp_1101_4_A.FormAttriTable.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1101_4_A\Temp_1101_4_A\bin\Debug\Temp_1101_4_A.exe.config
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1101_4_A\Temp_1101_4_A\obj\Debug\Temp_1101_4_A.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1101_4_A\Temp_1101_4_A\obj\Debug\Temp_1101_4_A.pdb
