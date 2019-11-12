@@ -22,7 +22,7 @@ namespace Temp_1110_4_3
     {
         private IMapControl2 m_pMapC2;
         private IMapDocument m_pMapDoc;
-        private string DATADIR = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName) + "\\Data\\";
+        private string DATADIR = Application.StartupPath + "\\Data\\";
         private Geoprocessor GP;
 
         public FormMain()
@@ -40,8 +40,32 @@ namespace Temp_1110_4_3
         private void FormMain_Load(object sender, EventArgs e)
         {
             axTOCControl_main.EnableLayerDragDrop = true; // 允许移动图层以改变图层显示顺序
+
+            #region # 按钮操作流程控制
+            SetButtonsEnableStatus(false, btn_AnalysisFillArr, btn_GetWater, btn_classify, btn_weightedOverlay, btn_ExportMap); 
+            #endregion
         }
 
+        // 控制图层显示状态
+        private void SetLayersVisibleStatus(bool isVisible, params ILayer[] layers)
+        {
+            for (int i = 0; i < m_pMapC2.LayerCount; i++)
+            {
+                m_pMapC2.get_Layer(i).Visible = !isVisible;
+            }
+            foreach (ILayer lyr in layers)
+            {
+                lyr.Visible = isVisible;
+            }
+        }
+        // 控制按钮可用性
+        private void SetButtonsEnableStatus(bool isEnable, params Button[] buttons)
+        {
+            foreach (Button btn in buttons)
+            {
+                btn.Enabled = isEnable;
+            }
+        }
         // 打开文件对话框读取文件
         private string GetFilenameFromOFG(string title, string filter)
         {
@@ -95,6 +119,19 @@ namespace Temp_1110_4_3
             IRasterLayer pRasterLayer = new RasterLayerClass();
             pRasterLayer.CreateFromDataset(pRasterDataset);
             m_pMapC2.AddLayer(pRasterLayer);
+        }
+        private void AddRasterFromGDB(params string[] rasternames)
+        {
+            FileGDBWorkspaceFactory pWorkspaceFactory = new FileGDBWorkspaceFactoryClass();
+            IWorkspace pWorkspace = pWorkspaceFactory.OpenFromFile(DATADIR + "Database.gdb", 0);
+            IRasterWorkspaceEx pRasterWorkspace = pWorkspace as IRasterWorkspaceEx;
+            foreach (string name in rasternames)
+            {
+                IRasterDataset pRasterDataset = pRasterWorkspace.OpenRasterDataset(name);
+                IRasterLayer pRasterLayer = new RasterLayerClass();
+                pRasterLayer.CreateFromDataset(pRasterDataset);
+                m_pMapC2.AddLayer(pRasterLayer); 
+            }
         }
         // 空间分析：坡度
         private void Slope(object in_raster, object out_raster)
@@ -175,9 +212,17 @@ namespace Temp_1110_4_3
         }
 
 
-        // 加载数据事件入口
+        // 加载数据 - 事件入口
         private void btn_AddData_Click(object sender, EventArgs e)
         {
+            #region # 按钮操作流程控制
+            if (btn_AddData.BackColor == Color.White)
+            {
+                MessageBox.Show("数据已添加");
+                return;
+            } 
+            #endregion
+
             string filename = "";
             if (MessageBox.Show("是否加载默认数据", "加载数据对话框", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
@@ -188,38 +233,64 @@ namespace Temp_1110_4_3
                 filename = GetFilenameFromOFG("打开地图文档", "地图文档 (*.mxd)|*.mxd");
             }
             LoadMxdFromFilename(filename);
+
+            #region # 按钮操作流程控制
+            SetButtonsEnableStatus(true, btn_AnalysisFillArr, btn_GetWater);
+            btn_AddData.BackColor = Color.White; 
+            #endregion
         }
 
-        // 计算“植被覆盖”图层范围内的坡度和坡向
+        // 计算“植被覆盖”图层范围内的坡度和坡向 - 事件入口
         private void btn_AnalysisFillArr_Click(object sender, EventArgs e) 
         {
+            #region # 按钮操作流程控制
+            if (btn_AnalysisFillArr.BackColor == Color.White)
+            {
+                MessageBox.Show("坡度和坡向计算已完成");
+                return;
+            } 
+            #endregion
             try
             {
                 FromSchedule schedule = new FromSchedule(4);
                 schedule.Show();
 
-                schedule.GO("正在获取图层数据"); // = 1
                 ILayer pLayer_DEM = GetLayerFromName("DEM");
                 ILayer pLayer_vagetable = GetLayerFromName("植被覆盖");
 
-                schedule.GO("正在提取植被覆盖图层范围内的DEM数据..."); // = 2
-                string out_dem = DATADIR + "Database.gdb\\研究区DEM";
-                ExtractByMask(pLayer_DEM, pLayer_vagetable, out_dem);
-                AddRasterFromGDB("研究区DEM");
-                GetLayerFromName("DEM").Visible = false;                
+                schedule.GO("正在提取植被覆盖图层范围内的DEM数据"); // = 1
+                ILayer pLayer_dem = GetLayerFromName("研究区DEM");
+                if (pLayer_dem == null)
+                {
+                    string out_dem = DATADIR + "Database.gdb\\研究区DEM";
+                    ExtractByMask(pLayer_DEM, pLayer_vagetable, out_dem);
+                    AddRasterFromGDB("研究区DEM");
+                    pLayer_dem = GetLayerFromName("研究区DEM");
+                }
 
-                schedule.GO("正在提取研究区DEM坡度..."); // = 3
+                schedule.GO("正在提取研究区DEM坡度"); // = 2
                 pLayer_DEM = GetLayerFromName("研究区DEM");
                 string out_slope = DATADIR + "Database.gdb\\坡度";
                 Slope(pLayer_DEM, out_slope);
-                AddRasterFromGDB("坡度");
 
-                schedule.GO("正在提取研究区DEM坡向..."); // = 4
+                schedule.GO("正在提取研究区DEM坡向"); // = 3
                 string out_aspect = DATADIR + "Database.gdb\\坡向";
                 Aspect(pLayer_DEM, out_aspect);
-                AddRasterFromGDB("坡向");
+
+
+                schedule.GO("正在可视化结果"); // = 4
+                AddRasterFromGDB("坡向", "坡度");
+                SetLayersVisibleStatus(true, GetLayerFromName("坡向"), GetLayerFromName("坡度"));
 
                 schedule.OK();
+
+                #region # 按钮操作流程控制
+                btn_AnalysisFillArr.BackColor = Color.White;
+                if (btn_GetWater.BackColor == Color.White)
+                {
+                    SetButtonsEnableStatus(true, btn_classify);
+                } 
+                #endregion
             }
             catch (Exception ex)
             {
@@ -227,15 +298,32 @@ namespace Temp_1110_4_3
             }
         }
 
-        // 提取“植被覆盖”图层范围内的河流数据
+        // 提取“植被覆盖”图层范围内的河流数据 - 事件入口
         private void btn_GetWater_Click(object sender, EventArgs e)
         {
+            #region # 按钮操作流程控制
+            if (btn_GetWater.BackColor == Color.White)
+            {
+                MessageBox.Show("河流数据提取已完成");
+                return;
+            } 
+            #endregion
+
             try
             {
                 FromSchedule schedule = new FromSchedule(6);
                 schedule.Show();
 
                 ILayer pLayer_dem = GetLayerFromName("研究区DEM");
+                if (pLayer_dem == null)
+                {
+                    ILayer pLayer_DEM = GetLayerFromName("DEM");
+                    ILayer pLayer_vagetable = GetLayerFromName("植被覆盖");
+                    string out_dem = DATADIR + "Database.gdb\\研究区DEM";
+                    ExtractByMask(pLayer_DEM, pLayer_vagetable, out_dem);
+                    AddRasterFromGDB("研究区DEM");
+                    pLayer_dem = GetLayerFromName("研究区DEM");
+                }
                 
                 schedule.GO("正在填挖研究区DEM"); // = 1
                 string out_filldem = DATADIR + "Database.gdb\\填挖研究区DEM";
@@ -271,7 +359,16 @@ namespace Temp_1110_4_3
                 ExtractByMask(out_riverdis, pLayer_dem, out_riverDis);
                 AddRasterFromGDB("河流缓冲");
 
+                SetLayersVisibleStatus(true, GetLayerFromName("河流"), GetLayerFromName("河流缓冲"));
                 schedule.OK();
+
+                #region # 按钮操作流程控制
+                btn_GetWater.BackColor = Color.White;
+                if (btn_AnalysisFillArr.BackColor == Color.White)
+                {
+                    SetButtonsEnableStatus(true, btn_classify);
+                } 
+                #endregion
             }
             catch (Exception ex)
             {
@@ -279,9 +376,17 @@ namespace Temp_1110_4_3
             }
         }
 
-        // 生态因子敏感性等级分类
+        // 生态因子敏感性等级分类 - 事件入口
         private void btn_classify_Click(object sender, EventArgs e)
         {
+            #region # 按钮操作流程控制
+            if (btn_classify.BackColor == Color.White)
+            {
+                MessageBox.Show("生态因子敏感性等级分类已完成");
+                return;
+            }
+            #endregion
+
             try
             {
                 FromSchedule schedule = new FromSchedule(7);
@@ -331,6 +436,11 @@ namespace Temp_1110_4_3
                 AddRasterFromGDB("reclassify_河流缓冲");
 
                 schedule.OK();
+
+                #region # 按钮操作流程控制
+                btn_classify.BackColor = Color.White;
+                SetButtonsEnableStatus(true, btn_weightedOverlay);
+                #endregion
             }
             catch (Exception ex)
             {
@@ -340,11 +450,21 @@ namespace Temp_1110_4_3
 
         }
 
-        // 加权叠加生成生态因子敏感度等级分布
+        // 加权叠加生成生态因子敏感度等级分布 - 事件入口
         private void btn_weightedOverlay_Click(object sender, EventArgs e)
         {
+            #region # 按钮操作流程控制
+            if (btn_weightedOverlay.BackColor == Color.White)
+            {
+                MessageBox.Show("生态因子敏感性等级分类已完成");
+                return;
+            }
+            #endregion
+
             FromSchedule schedule = new FromSchedule(1);
             schedule.Show();
+
+            schedule.GO("正在执行加权叠加生成生态因子敏感度等级分布计算"); // = 1
 
             ILayer pLayer_reSlope = GetLayerFromName("reclassify_坡度");
             ILayer pLayer_reDEM = GetLayerFromName("reclassify_研究区DEM");
@@ -356,20 +476,28 @@ namespace Temp_1110_4_3
 
             ESRI.ArcGIS.SpatialAnalystTools.WeightedOverlay pTool = new ESRI.ArcGIS.SpatialAnalystTools.WeightedOverlay() { 
                 in_weighted_overlay_table = @"('D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_坡度' 20 'Value' (1 1; 2 2; 3 3; 4 4; 5 5;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_研究区DEM' 10 'Value' (1 1; 2 2; 3 3;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_坡向' 10 'Value' (1 1; 2 2; 3 3; 4 4; 5 5;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_植被覆盖' 30 'Value' (1 1; 4 4;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_水系' 20 'Value' (1 1; 4 4;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_河流缓冲' 10 'Value' (1 1; 2 2; 3 3; 4 4; 5 5;NODATA NODATA));1 5 1",
-                out_raster = DATADIR + "Database.gdb\\生态敏感度等级分布"
+                out_raster = DATADIR + "Database.gdb\\生态敏感度等级"
             };
             GP.Execute(pTool, null);
-            AddRasterFromGDB("生态敏感度等级分布");
+            AddRasterFromGDB("生态敏感度等级");
+
+            SetLayersVisibleStatus(true, GetLayerFromName("生态敏感度等级"));
 
             schedule.OK();
+
+            #region # 按钮操作流程控制
+            btn_weightedOverlay.BackColor = Color.White;
+            SetButtonsEnableStatus(true, btn_ExportMap);
+            #endregion
         }
 
-        // 绘制生态敏感性等级分布专题图
+        // 绘制生态敏感性等级分布专题图 - 事件入口
         private void btn_ExportMap_Click(object sender, EventArgs e)
         {
-            ILayer pLayer = GetLayerFromName("生态敏感度等级分布");
+            ILayer pLayer = GetLayerFromName("生态敏感度等级");
             new FormExportMap(pLayer).ShowDialog();
         }
+
 
         // 地图平移
         private void axMapControl_main_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)

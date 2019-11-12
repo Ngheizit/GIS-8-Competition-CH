@@ -30,6 +30,21 @@ namespace AeDome
         } 
         #endregion
 
+        #region // 创建渐变颜色集
+        public static IEnumColors CreateColors(IRgbColor fromColor, IRgbColor toColor, int size)
+        {
+            IAlgorithmicColorRamp pColorRamp = new AlgorithmicColorRampClass() { 
+                FromColor = fromColor,
+                ToColor = toColor,
+                Algorithm = esriColorRampAlgorithm.esriCIELabAlgorithm,
+                Size = size
+            };
+            bool bOk = true;
+            pColorRamp.CreateRamp(out bOk);
+            return pColorRamp.Colors;
+        }
+        #endregion
+
         #region // 属性统计
         public static IStatisticsResults GetDataSataResults(IFeatureLayer featureLayer, string fieldName)
         {
