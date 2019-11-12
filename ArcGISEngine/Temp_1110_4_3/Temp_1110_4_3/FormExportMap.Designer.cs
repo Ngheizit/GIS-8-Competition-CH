@@ -31,10 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExportMap));
             this.axPageLayoutControl_main = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_addTitle = new System.Windows.Forms.Button();
+            this.btn_addMapElementts = new System.Windows.Forms.Button();
             this.btn_symbology = new System.Windows.Forms.Button();
             this.axToolbarControl1 = new ESRI.ArcGIS.Controls.AxToolbarControl();
-            this.btn_addMapElementts = new System.Windows.Forms.Button();
-            this.btn_addTitle = new System.Windows.Forms.Button();
+            this.btn_exportMap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl_main)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -50,6 +51,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_exportMap);
             this.groupBox1.Controls.Add(this.btn_addTitle);
             this.groupBox1.Controls.Add(this.btn_addMapElementts);
             this.groupBox1.Controls.Add(this.btn_symbology);
@@ -59,6 +61,26 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "功能区";
+            // 
+            // btn_addTitle
+            // 
+            this.btn_addTitle.Location = new System.Drawing.Point(217, 21);
+            this.btn_addTitle.Name = "btn_addTitle";
+            this.btn_addTitle.Size = new System.Drawing.Size(75, 23);
+            this.btn_addTitle.TabIndex = 2;
+            this.btn_addTitle.Text = "添加标题";
+            this.btn_addTitle.UseVisualStyleBackColor = true;
+            this.btn_addTitle.Click += new System.EventHandler(this.btn_addTitle_Click);
+            // 
+            // btn_addMapElementts
+            // 
+            this.btn_addMapElementts.Location = new System.Drawing.Point(95, 20);
+            this.btn_addMapElementts.Name = "btn_addMapElementts";
+            this.btn_addMapElementts.Size = new System.Drawing.Size(115, 23);
+            this.btn_addMapElementts.TabIndex = 1;
+            this.btn_addMapElementts.Text = "添加地图三要素";
+            this.btn_addMapElementts.UseVisualStyleBackColor = true;
+            this.btn_addMapElementts.Click += new System.EventHandler(this.btn_addMapElementts_Click);
             // 
             // btn_symbology
             // 
@@ -78,25 +100,15 @@
             this.axToolbarControl1.Size = new System.Drawing.Size(396, 28);
             this.axToolbarControl1.TabIndex = 2;
             // 
-            // btn_addMapElementts
+            // btn_exportMap
             // 
-            this.btn_addMapElementts.Location = new System.Drawing.Point(95, 20);
-            this.btn_addMapElementts.Name = "btn_addMapElementts";
-            this.btn_addMapElementts.Size = new System.Drawing.Size(115, 23);
-            this.btn_addMapElementts.TabIndex = 1;
-            this.btn_addMapElementts.Text = "添加地图三要素";
-            this.btn_addMapElementts.UseVisualStyleBackColor = true;
-            this.btn_addMapElementts.Click += new System.EventHandler(this.btn_addMapElementts_Click);
-            // 
-            // btn_addTitle
-            // 
-            this.btn_addTitle.Location = new System.Drawing.Point(217, 21);
-            this.btn_addTitle.Name = "btn_addTitle";
-            this.btn_addTitle.Size = new System.Drawing.Size(75, 23);
-            this.btn_addTitle.TabIndex = 2;
-            this.btn_addTitle.Text = "添加标题";
-            this.btn_addTitle.UseVisualStyleBackColor = true;
-            this.btn_addTitle.Click += new System.EventHandler(this.btn_addTitle_Click);
+            this.btn_exportMap.Location = new System.Drawing.Point(299, 21);
+            this.btn_exportMap.Name = "btn_exportMap";
+            this.btn_exportMap.Size = new System.Drawing.Size(91, 22);
+            this.btn_exportMap.TabIndex = 3;
+            this.btn_exportMap.Text = "输出专题图";
+            this.btn_exportMap.UseVisualStyleBackColor = true;
+            this.btn_exportMap.Click += new System.EventHandler(this.btn_exportMap_Click);
             // 
             // FormExportMap
             // 
@@ -123,5 +135,6 @@
         private ESRI.ArcGIS.Controls.AxToolbarControl axToolbarControl1;
         private System.Windows.Forms.Button btn_addMapElementts;
         private System.Windows.Forms.Button btn_addTitle;
+        private System.Windows.Forms.Button btn_exportMap;
     }
 }

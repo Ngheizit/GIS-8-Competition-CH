@@ -31,22 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_help = new System.Windows.Forms.Button();
             this.btn_ExportMap = new System.Windows.Forms.Button();
             this.btn_weightedOverlay = new System.Windows.Forms.Button();
             this.btn_classify = new System.Windows.Forms.Button();
             this.btn_GetWater = new System.Windows.Forms.Button();
             this.btn_AnalysisFillArr = new System.Windows.Forms.Button();
             this.btn_AddData = new System.Windows.Forms.Button();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape6 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape5 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.axTOCControl_main = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.axMapControl_main = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axToolbarControl_main = new ESRI.ArcGIS.Controls.AxToolbarControl();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape5 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape6 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl_main)).BeginInit();
@@ -65,6 +66,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_help);
             this.groupBox1.Controls.Add(this.btn_ExportMap);
             this.groupBox1.Controls.Add(this.btn_weightedOverlay);
             this.groupBox1.Controls.Add(this.btn_classify);
@@ -79,9 +81,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "功能区";
             // 
+            // btn_help
+            // 
+            this.btn_help.Location = new System.Drawing.Point(660, 12);
+            this.btn_help.Name = "btn_help";
+            this.btn_help.Size = new System.Drawing.Size(98, 23);
+            this.btn_help.TabIndex = 7;
+            this.btn_help.Text = "系统使用说明";
+            this.btn_help.UseVisualStyleBackColor = true;
+            this.btn_help.Click += new System.EventHandler(this.btn_help_Click);
+            // 
             // btn_ExportMap
             // 
-            this.btn_ExportMap.Location = new System.Drawing.Point(699, 41);
+            this.btn_ExportMap.Location = new System.Drawing.Point(704, 41);
             this.btn_ExportMap.Name = "btn_ExportMap";
             this.btn_ExportMap.Size = new System.Drawing.Size(24, 43);
             this.btn_ExportMap.TabIndex = 5;
@@ -139,6 +151,70 @@
             this.btn_AddData.UseVisualStyleBackColor = true;
             this.btn_AddData.Click += new System.EventHandler(this.btn_AddData_Click);
             // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(3, 17);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape6,
+            this.lineShape5,
+            this.lineShape4,
+            this.lineShape3,
+            this.lineShape2,
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(758, 103);
+            this.shapeContainer1.TabIndex = 6;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape6
+            // 
+            this.lineShape6.Name = "lineShape6";
+            this.lineShape6.X1 = 637;
+            this.lineShape6.X2 = 711;
+            this.lineShape6.Y1 = 46;
+            this.lineShape6.Y2 = 46;
+            // 
+            // lineShape5
+            // 
+            this.lineShape5.Name = "lineShape5";
+            this.lineShape5.X1 = 464;
+            this.lineShape5.X2 = 539;
+            this.lineShape5.Y1 = 47;
+            this.lineShape5.Y2 = 47;
+            // 
+            // lineShape4
+            // 
+            this.lineShape4.Name = "lineShape4";
+            this.lineShape4.X1 = 313;
+            this.lineShape4.X2 = 376;
+            this.lineShape4.Y1 = 73;
+            this.lineShape4.Y2 = 40;
+            // 
+            // lineShape3
+            // 
+            this.lineShape3.Name = "lineShape3";
+            this.lineShape3.X1 = 313;
+            this.lineShape3.X2 = 384;
+            this.lineShape3.Y1 = 18;
+            this.lineShape3.Y2 = 43;
+            // 
+            // lineShape2
+            // 
+            this.lineShape2.Name = "lineShape2";
+            this.lineShape2.X1 = 136;
+            this.lineShape2.X2 = 220;
+            this.lineShape2.Y1 = 47;
+            this.lineShape2.Y2 = 73;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 129;
+            this.lineShape1.X2 = 216;
+            this.lineShape1.Y1 = 49;
+            this.lineShape1.Y2 = 19;
+            // 
             // axTOCControl_main
             // 
             this.axTOCControl_main.Location = new System.Drawing.Point(781, 46);
@@ -163,70 +239,6 @@
             this.axToolbarControl_main.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axToolbarControl_main.OcxState")));
             this.axToolbarControl_main.Size = new System.Drawing.Size(227, 28);
             this.axToolbarControl_main.TabIndex = 4;
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(3, 17);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape6,
-            this.lineShape5,
-            this.lineShape4,
-            this.lineShape3,
-            this.lineShape2,
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(758, 103);
-            this.shapeContainer1.TabIndex = 6;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 129;
-            this.lineShape1.X2 = 216;
-            this.lineShape1.Y1 = 49;
-            this.lineShape1.Y2 = 19;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 136;
-            this.lineShape2.X2 = 220;
-            this.lineShape2.Y1 = 47;
-            this.lineShape2.Y2 = 73;
-            // 
-            // lineShape3
-            // 
-            this.lineShape3.Name = "lineShape3";
-            this.lineShape3.X1 = 313;
-            this.lineShape3.X2 = 384;
-            this.lineShape3.Y1 = 18;
-            this.lineShape3.Y2 = 43;
-            // 
-            // lineShape4
-            // 
-            this.lineShape4.Name = "lineShape4";
-            this.lineShape4.X1 = 313;
-            this.lineShape4.X2 = 376;
-            this.lineShape4.Y1 = 73;
-            this.lineShape4.Y2 = 40;
-            // 
-            // lineShape5
-            // 
-            this.lineShape5.Name = "lineShape5";
-            this.lineShape5.X1 = 467;
-            this.lineShape5.X2 = 539;
-            this.lineShape5.Y1 = 49;
-            this.lineShape5.Y2 = 47;
-            // 
-            // lineShape6
-            // 
-            this.lineShape6.Name = "lineShape6";
-            this.lineShape6.X1 = 637;
-            this.lineShape6.X2 = 706;
-            this.lineShape6.Y1 = 46;
-            this.lineShape6.Y2 = 44;
             // 
             // FormMain
             // 
@@ -270,6 +282,7 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private System.Windows.Forms.Button btn_help;
     }
 }
 

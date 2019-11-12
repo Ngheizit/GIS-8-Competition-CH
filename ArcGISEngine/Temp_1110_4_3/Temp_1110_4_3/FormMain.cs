@@ -476,12 +476,12 @@ namespace Temp_1110_4_3
 
             ESRI.ArcGIS.SpatialAnalystTools.WeightedOverlay pTool = new ESRI.ArcGIS.SpatialAnalystTools.WeightedOverlay() { 
                 in_weighted_overlay_table = @"('D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_坡度' 20 'Value' (1 1; 2 2; 3 3; 4 4; 5 5;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_研究区DEM' 10 'Value' (1 1; 2 2; 3 3;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_坡向' 10 'Value' (1 1; 2 2; 3 3; 4 4; 5 5;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_植被覆盖' 30 'Value' (1 1; 4 4;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_水系' 20 'Value' (1 1; 4 4;NODATA NODATA); 'D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_1110_4_3\Temp_1110_4_3\bin\Debug\Data\Database.gdb\reclassify_河流缓冲' 10 'Value' (1 1; 2 2; 3 3; 4 4; 5 5;NODATA NODATA));1 5 1",
-                out_raster = DATADIR + "Database.gdb\\生态敏感度等级"
+                out_raster = DATADIR + "Database.gdb\\生态环境敏感度等级"
             };
             GP.Execute(pTool, null);
-            AddRasterFromGDB("生态敏感度等级");
+            AddRasterFromGDB("生态环境敏感度等级");
 
-            SetLayersVisibleStatus(true, GetLayerFromName("生态敏感度等级"));
+            SetLayersVisibleStatus(true, GetLayerFromName("生态环境敏感度等级"));
 
             schedule.OK();
 
@@ -494,7 +494,7 @@ namespace Temp_1110_4_3
         // 绘制生态敏感性等级分布专题图 - 事件入口
         private void btn_ExportMap_Click(object sender, EventArgs e)
         {
-            ILayer pLayer = GetLayerFromName("生态敏感度等级");
+            ILayer pLayer = GetLayerFromName("生态环境敏感度等级");
             new FormExportMap(pLayer).ShowDialog();
         }
 
@@ -508,6 +508,13 @@ namespace Temp_1110_4_3
                 m_pMapC2.Pan();
                 m_pMapC2.MousePointer = esriControlsMousePointer.esriPointerArrow;
             }
+        }
+
+
+        // 打开帮助文档
+        private void btn_help_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, Application.StartupPath + @"\帮助文档.pdf");
         }
 
 

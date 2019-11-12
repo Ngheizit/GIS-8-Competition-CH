@@ -65,7 +65,7 @@ namespace Temp_1110_4_3
         ///<param name="legW">A System.Double that is length in page units of the Legend in both the X and Y direction. Example: 5.0</param>
         /// 
         ///<remarks></remarks>
-        public void AddLegend(ESRI.ArcGIS.Carto.IPageLayout pageLayout, ESRI.ArcGIS.Carto.IMap map, System.Double posX, System.Double posY, System.Double legW)
+        public void AddLegend(IPageLayout pageLayout, IMap map, Double posX, Double posY, Double legW)
         {
 
             if (pageLayout == null || map == null)
@@ -87,6 +87,21 @@ namespace Temp_1110_4_3
             querySize.QuerySize(ref w, ref h);
             System.Double aspectRatio = w / h;
 
+            // 
+            ILegend pLegend = mapSurroundFrame.MapSurround as ILegend;
+            pLegend.Title = "图例";
+            pLegend.Format.TitlePosition = esriRectanglePosition.esriLeftSide | esriRectanglePosition.esriTopSide;
+            pLegend.Format.TitleSymbol = new TextSymbolClass() { 
+                Font = GetFontDisp(24)
+            };
+            pLegend.get_Item(0).ShowLayerName = true;
+            pLegend.get_Item(0).LayerNameSymbol = new TextSymbolClass() {
+                Font = GetFontDisp(22)
+            };
+            pLegend.get_Item(0).LegendClassFormat.LabelSymbol = new TextSymbolClass() {
+                Font = GetFontDisp(20)
+            };
+
             ESRI.ArcGIS.Geometry.IEnvelope envelope = new ESRI.ArcGIS.Geometry.EnvelopeClass();
             envelope.PutCoords(posX, posY, (posX * legW), (posY * legW / aspectRatio));
             ESRI.ArcGIS.Carto.IElement element = mapSurroundFrame as ESRI.ArcGIS.Carto.IElement; // Dynamic Cast
@@ -102,7 +117,7 @@ namespace Temp_1110_4_3
         ///<param name="map">An IMap interface.</param>
         ///      
         ///<remarks></remarks>
-        public void AddNorthArrow(ESRI.ArcGIS.Carto.IPageLayout pageLayout, ESRI.ArcGIS.Carto.IMap map)
+        public void AddNorthArrow(IPageLayout pageLayout, IMap map)
         {
 
             if (pageLayout == null || map == null)
@@ -110,7 +125,7 @@ namespace Temp_1110_4_3
                 return;
             }
             ESRI.ArcGIS.Geometry.IEnvelope envelope = new ESRI.ArcGIS.Geometry.EnvelopeClass();
-            envelope.PutCoords(1, 25, 5, 25); //  Specify the location and size of the north arrow
+            envelope.PutCoords(1, 24, 5, 24); //  Specify the location and size of the north arrow
 
             ESRI.ArcGIS.esriSystem.IUID uid = new ESRI.ArcGIS.esriSystem.UIDClass();
             uid.Value = "esriCarto.MarkerNorthArrow";
@@ -143,7 +158,7 @@ namespace Temp_1110_4_3
         ///<param name="map">An IMap interface.</param>
         ///
         ///<remarks></remarks>
-        public void AddScalebar(ESRI.ArcGIS.Carto.IPageLayout pageLayout, ESRI.ArcGIS.Carto.IMap map)
+        public void AddScalebar(IPageLayout pageLayout, IMap map)
         {
 
             if (pageLayout == null || map == null)
@@ -152,7 +167,7 @@ namespace Temp_1110_4_3
             }
 
             ESRI.ArcGIS.Geometry.IEnvelope envelope = new ESRI.ArcGIS.Geometry.EnvelopeClass();
-            envelope.PutCoords(10, 1, 20, 1.5); // Specify the location and size of the scalebar
+            envelope.PutCoords(7, 1, 25, 1.5); // Specify the location and size of the scalebar
             ESRI.ArcGIS.esriSystem.IUID uid = new ESRI.ArcGIS.esriSystem.UIDClass();
             uid.Value = "esriCarto.AlternatingScaleBar";
 
@@ -171,6 +186,14 @@ namespace Temp_1110_4_3
 
 
             ESRI.ArcGIS.Carto.IScaleBar markerScaleBar = ((ESRI.ArcGIS.Carto.IScaleBar)(mapSurround));
+
+            markerScaleBar.LabelSymbol = new TextSymbolClass() { 
+                Font = GetFontDisp(20)
+            };
+            markerScaleBar.UnitLabelSymbol = new TextSymbolClass() {
+                Font = GetFontDisp(20)
+            };
+
             markerScaleBar.LabelPosition = ESRI.ArcGIS.Carto.esriVertPosEnum.esriBelow;
             markerScaleBar.UseMapSettings();
         }
@@ -181,10 +204,10 @@ namespace Temp_1110_4_3
         ///<returns>An stdole.IFontDisp interface</returns>
         ///  
         ///<remarks></remarks>
-        public stdole.IFontDisp GetFontDisp(int size)
+        public stdole.IFontDisp GetFontDisp(int size, bool isbold = false)
         {
             stdole.IFontDisp fontDisp = new stdole.StdFontClass() as stdole.IFontDisp; // Dynamic Cast
-            fontDisp.Bold = true;
+            fontDisp.Bold = isbold;
             fontDisp.Name = "Arial";
             fontDisp.Italic = false;
             fontDisp.Underline = false;
@@ -204,7 +227,7 @@ namespace Temp_1110_4_3
             };
             // 文本符号
             ITextSymbol pTextSymbol = new TextSymbolClass() { 
-                Font = GetFontDisp(30),
+                Font = GetFontDisp(30, true),
                 Color = GetRgbColor(0, 0, 0)
             };
             // 文本对象
@@ -216,7 +239,6 @@ namespace Temp_1110_4_3
             (axPageLayoutControl_main.PageLayout as IGraphicsContainer).AddElement(pElement, 0);
             axPageLayoutControl_main.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
         }
-
         // 专题图符号化（唯一值符号化 - 颜色带渐变） - 事件入口
         private void btn_symbology_Click(object sender, EventArgs e)
         {
@@ -242,11 +264,52 @@ namespace Temp_1110_4_3
             (m_pLayer as IRasterLayer).Renderer = pRenderer as IRasterRenderer;
             axPageLayoutControl_main.Refresh();
         }
+        // 唯一值渲染器设置
         private void SetRasterRendererInfo(IRasterUniqueValueRenderer renderer, int iclass,object value, string label)
         {
             renderer.AddValue(0, iclass, value);
             renderer.set_Label(0, iclass, label);
         }
+
+        #region // 输出地图
+        public System.Boolean ExportMap(IActiveView activeView, String pathFileName)
+        {
+            //parameter check
+            if (activeView == null || !(pathFileName.EndsWith(".jpg")))
+            {
+                return false;
+            }
+            ESRI.ArcGIS.Output.IExport export = new ESRI.ArcGIS.Output.ExportJPEGClass();
+            export.ExportFileName = pathFileName;
+
+            // Because we are exporting to a resolution that differs from screen 
+            // resolution, we should assign the two values to variables for use 
+            // in our sizing calculations
+            System.Int32 screenResolution = 96;
+            System.Int32 outputResolution = 300;
+
+            export.Resolution = outputResolution;
+
+            tagRECT exportRECT; // This is a structure
+            exportRECT.left = 0;
+            exportRECT.top = 0;
+            exportRECT.right = activeView.ExportFrame.right * (outputResolution / screenResolution);
+            exportRECT.bottom = activeView.ExportFrame.bottom * (outputResolution / screenResolution);
+
+            // Set up the PixelBounds envelope to match the exportRECT
+            ESRI.ArcGIS.Geometry.IEnvelope envelope = new ESRI.ArcGIS.Geometry.EnvelopeClass();
+            envelope.PutCoords(exportRECT.left, exportRECT.top, exportRECT.right, exportRECT.bottom);
+            export.PixelBounds = envelope;
+
+            System.Int32 hDC = export.StartExporting();
+
+            activeView.Output(hDC, (System.Int16)export.Resolution, ref exportRECT, null, null); // Explicit Cast and 'ref' keyword needed 
+            export.FinishExporting();
+            export.Cleanup();
+
+            return true;
+        }
+        #endregion
 
         // 添加地图三要素（指北针、比例尺、图例）
         private void btn_addMapElementts_Click(object sender, EventArgs e)
@@ -269,9 +332,24 @@ namespace Temp_1110_4_3
             axPageLayoutControl_main.Refresh();
         }
 
+        // 添加标题 - 事件入口
         private void btn_addTitle_Click(object sender, EventArgs e)
         {
-            AddTitle("某地区的生态敏感性等级分布专题图");
+            AddTitle("某地区生态环境敏感性等级分布专题图");
+        }
+
+        // 输出专题图 - 事件入口
+        private void btn_exportMap_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfg = new SaveFileDialog() { 
+                Title = "输出专题图",
+                Filter = "图片 (*.jpg)|*.jpg"
+            };
+            if (sfg.ShowDialog() == DialogResult.OK)
+            {
+                ExportMap(axPageLayoutControl_main.ActiveView, sfg.FileName);
+                MessageBox.Show("出图成功");
+            }
         }
 
 
