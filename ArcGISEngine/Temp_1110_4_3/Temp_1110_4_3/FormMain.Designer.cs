@@ -66,6 +66,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btn_help);
             this.groupBox1.Controls.Add(this.btn_ExportMap);
             this.groupBox1.Controls.Add(this.btn_weightedOverlay);
@@ -217,6 +219,8 @@
             // 
             // axTOCControl_main
             // 
+            this.axTOCControl_main.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.axTOCControl_main.Location = new System.Drawing.Point(781, 46);
             this.axTOCControl_main.Name = "axTOCControl_main";
             this.axTOCControl_main.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl_main.OcxState")));
@@ -225,6 +229,9 @@
             // 
             // axMapControl_main
             // 
+            this.axMapControl_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.axMapControl_main.Location = new System.Drawing.Point(11, 133);
             this.axMapControl_main.Name = "axMapControl_main";
             this.axMapControl_main.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl_main.OcxState")));
@@ -234,6 +241,7 @@
             // 
             // axToolbarControl_main
             // 
+            this.axToolbarControl_main.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.axToolbarControl_main.Location = new System.Drawing.Point(781, 12);
             this.axToolbarControl_main.Name = "axToolbarControl_main";
             this.axToolbarControl_main.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axToolbarControl_main.OcxState")));
