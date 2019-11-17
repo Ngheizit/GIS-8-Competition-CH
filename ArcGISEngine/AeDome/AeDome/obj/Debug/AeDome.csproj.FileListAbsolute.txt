@@ -12,3 +12,11 @@ D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.Progre
 D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\bin\Debug\AeDome.exe.config
 D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.exe
 D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.pdb
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\bin\Debug\AeDome.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\bin\Debug\AeDome.pdb
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.csprojResolveAssemblyReference.cache
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.ProgressBar.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.FormMain.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.Froms.FromAttributeTable.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.Properties.Resources.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\AeDome\AeDome\obj\Debug\AeDome.csproj.GenerateResource.Cache
