@@ -136,5 +136,31 @@ namespace Dome
                 m_pToolbarMenu.PopupMenu(e.x, e.y, axTOCControl1.hWnd);
             }
         }
+
+        private void axMapControl_Eye_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
+        {
+            if (e.button == 1)
+            {
+                m_pMapC2.CenterAt(new PointClass() { 
+                    X = e.mapX, Y = e.mapY
+                });
+            }
+        }
+
+        private void axMapControl_Eye_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
+        {
+            if (e.button == 1)
+            {
+                m_pMapC2.CenterAt(new PointClass() {
+                    X = e.mapX,
+                    Y = e.mapY
+                });
+            }
+            if (e.button == 2)
+            {
+                IEnvelope pEnv = axMapControl_Eye.TrackRectangle();
+                m_pMapC2.Extent = pEnv;
+            }
+        }
     }
 }

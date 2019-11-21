@@ -113,6 +113,8 @@
             this.axMapControl_Eye.Size = new System.Drawing.Size(225, 121);
             this.axMapControl_Eye.TabIndex = 3;
             this.axMapControl_Eye.Visible = false;
+            this.axMapControl_Eye.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl_Eye_OnMouseDown);
+            this.axMapControl_Eye.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl_Eye_OnMouseMove);
             // 
             // axMapControl1
             // 
