@@ -48,9 +48,10 @@ namespace Temp_1119_6_B
         }
 
 
+
         public override void OnClick()
         {
-
+            string name = NetworkAnalysClass
         }
 
         public override void OnMouseDown(int Button, int Shift, int X, int Y)

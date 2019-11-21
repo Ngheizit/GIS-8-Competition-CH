@@ -1,0 +1,10 @@
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\bin\Debug\Dome.exe.config
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\bin\Debug\Dome.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\bin\Debug\Dome.pdb
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\obj\Debug\Dome.csprojResolveAssemblyReference.cache
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\obj\Debug\Dome.FormMain.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\obj\Debug\Dome.Properties.Resources.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\obj\Debug\Dome.csproj.GenerateResource.Cache
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\obj\Debug\Dome.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\obj\Debug\Dome.pdb
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Dome\Dome\obj\Debug\Dome.FormAttributeTable.resources
