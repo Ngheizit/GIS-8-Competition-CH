@@ -1,0 +1,8 @@
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\test4\test4\bin\Debug\test4.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\test4\test4\bin\Debug\test4.pdb
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\test4\test4\obj\x86\Debug\test4.csprojResolveAssemblyReference.cache
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\test4\test4\obj\x86\Debug\test4.MainForm.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\test4\test4\obj\x86\Debug\test4.Properties.Resources.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\test4\test4\obj\x86\Debug\test4.csproj.GenerateResource.Cache
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\test4\test4\obj\x86\Debug\test4.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\test4\test4\obj\x86\Debug\test4.pdb

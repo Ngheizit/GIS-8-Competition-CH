@@ -7,3 +7,6 @@ D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.csproj.GenerateResource.Cache
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.exe
 D:\xizhe\GIS_8_Competition_CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.pdb
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_Scene\Temp_Scene\bin\Debug\Temp_Scene.exe.config
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Temp_Scene\Temp_Scene\obj\Debug\Temp_Scene.pdb

@@ -1,0 +1,10 @@
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\bin\Debug\Test5.exe.config
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\bin\Debug\Test5.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\bin\Debug\Test5.pdb
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\obj\Debug\Test5.csprojResolveAssemblyReference.cache
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\obj\Debug\Test5.FormAttributeTable.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\obj\Debug\Test5.FormMain.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\obj\Debug\Test5.Properties.Resources.resources
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\obj\Debug\Test5.csproj.GenerateResource.Cache
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\obj\Debug\Test5.exe
+D:\gitproj\GIS-8-Competition-CH\ArcGISEngine\Test5\Test5\obj\Debug\Test5.pdb
